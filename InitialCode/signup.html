@@ -106,23 +106,147 @@
           <div id="errormessage"></div>
           <form action="" method="post" role="form" class="contactForm">
             <div class="form-row">
-              <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <div class="form-group col-md-3">
+                <p>Personal Info:</p>
+              </div>
+              <div class="form-group col-md-3">
+                <input type="text" name="First name" class="form-control" id="name" placeholder="First Name" data-rule="minlen:1" data-msg="Please enter at least 1 chars" />
                 <div class="validation"></div>
               </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+              <div class="form-group col-md-3">
+                <input type="text" name="Last name" class="form-control" id="name" placeholder="Last Name" data-rule="minlen:1" data-msg="Please enter at least 1 chars" />
                 <div class="validation"></div>
               </div>
+              <div class="form-group col-md-3">
+                
+              </div>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                
+              </div>
+              <div class="form-group col-md-6">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email (As username)" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validation"></div>
+              </div>
+
+              
+              <div class="form-group col-md-3">
+                
+              </div>
             </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validation"></div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                  
+              </div>
+              <div class="form-group col-md-6">
+                  <input type="creditCard" class="form-control" name="creditCard" id="creditCard" placeholder="Credit Card Num (Holder must be coincident with your name)" data-rule="minlen:13" data-msg="Please enter a valid creditcard" />
+                  <div class="validation"></div>
+              </div>
+
+              
+              <div class="form-group col-md-3">
+                
+              </div>
             </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                  
+              </div>
+              <div class="form-group col-md-2">
+                  <input type="pincode" class="form-control" name="pincode" id="pincode" placeholder="pin (last 3 digits)" data-rule="minlen:3"  data-msg="Please enter a valid pin code" />
+                  <div class="validation"></div>
+              </div>
+
+              
+              <div class="form-group col-md-7">
+                
+              </div>
+            </div>
+
+            
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Your Occupation Area:</p>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="student&scholar" name="student&scholar" value="student&scholar">
+                   <label for="subscribeNews">Students & Scholars</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="Business" name="Business" value="Business">
+                   <label for="subscribeNews">Business</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="Science&technology" name="Science&technology" value="Science&technology">
+                   <label for="subscribeNews">Science & Tech</label>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="Arts&Literature" name="Arts&Literature" value="Arts&Literature">
+                   <label for="subscribeNews">Arts & Literature</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="SocialWork" name="SocialWork" value="SocialWork">
+                   <label for="subscribeNews">Social works</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="others" name="others" value="others">
+                   <label for="subscribeNews">Others</label>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+            
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Set Password:</p>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="text" name="Password" class="form-control" id="Password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Confirm Password:</p>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="text" name="Password2" class="form-control" id="Password2" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+
+            
+            
             
               <div class="text-center"><button type="submit">Submit</button></div>  
         </form>
