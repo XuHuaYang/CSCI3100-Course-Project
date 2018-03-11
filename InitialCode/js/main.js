@@ -125,11 +125,11 @@ jQuery(document).ready(function( $ ) {
   });
 
   // Skills section
-  $('#skills').waypoint(function() {
+  /*$('#skills').waypoint(function() {
     $('.progress .progress-bar').each(function() {
       $(this).css("width", $(this).attr("aria-valuenow") + '%');
     });
-  }, { offset: '80%'} );
+  }, { offset: '80%'} );*/
 
   // jQuery counterUp (used in Facts section)
   $('[data-toggle="counter-up"]').counterUp({
@@ -140,7 +140,8 @@ jQuery(document).ready(function( $ ) {
   // Porfolio isotope and filter
   var portfolioIsotope = $('.portfolio-container').isotope({
     itemSelector: '.portfolio-item',
-    layoutMode: 'fitRows'
+    //layoutMode: 'fitRows'
+    layoutMode:'vertical'
   });
 
   $('#portfolio-flters li').on( 'click', function() {

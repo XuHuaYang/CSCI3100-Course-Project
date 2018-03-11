@@ -34,4 +34,5 @@ function submitMst(){
         data[i] = "";
     }
     var myJSON = JSON.stringify(data);//将dictionary转换成JSON
+    myJSON.send();
 }
