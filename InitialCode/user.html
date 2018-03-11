@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
-  <title>User page</title>
+  <title>UserPage</title>
   <script language="JavaScript"></script>
   <style>
     #nav {
@@ -54,16 +54,32 @@
 </head>
 
 <!-- <body style="background-image:url('img/black.png')"> -->
-<body>
 
-    <div id="header" class="header-scrolled";>
+
+<body>
+	<header id="header" style="background-color:black">
+    <div class="container-fluid">
+
       <div id="logo" class="pull-left">
-        <h1><a href="homepage.html" class="scrollto">Mr.Stat's</a></h1>
+        <h1><a href="#intro" class="scrollto">Dr Stat's</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#signup">Sign in</a></li>
+          <li><a href="#purchase">Purchase</a></li>
+          <li><a href="#release">Release</a></li>
+          <li><a href="user.html">Account</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
     </div>
+</header><!-- #header -->
 
     <div id="nav">
-      <br>
+      <br><br><br>
       <p><a href="user.html">User Account</a></p><br>
       <p><a href="releaseHistory.html"><font color="white">Release History</font></a></p><br>
       <p><a href="purchaseHistory.html"><font color="white">Purchase History</font></a></p><br>        
