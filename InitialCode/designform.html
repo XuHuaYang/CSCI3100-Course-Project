@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Sign up page</title>
+  <title>Design Page</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -31,7 +31,11 @@
 </head>
 
 <body>
+	
 
+  <!--==========================
+    Header
+  ============================-->
   <header id="header">
     <div class="container-fluid">
 
@@ -46,8 +50,7 @@
           <li><a href="main.html">Home</a></li>
           <li><a href="buyer.html">Purchase</a></li>
           <li><a href="Design_form.html">Release</a></li>
-          <li><a href="user.html">Account</a></li>
-		  <li class="menu-active"><a href="signup.html">LOGIN</a></li>
+          <li class="menu-active"><a href="user.html">Account</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -67,9 +70,9 @@
           <div class="carousel-item active" style="background-image: url('img/intro-carousel/3.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>Join us right now!</h2>
-                <p>Get your account and start your Stat's jounery with us!</p>
-                <a href="#register" class="btn-get-started scrollto">Sign up now</a>
+                <h2>Design your own form!</h2>
+                <p>Design,distribute and collect data now!</p>
+                <a href="#register" class="btn-get-started scrollto">Design form now</a>
               </div>
             </div>
           </div>     
@@ -96,29 +99,27 @@
 
         <div class="section-header">
           <p></p>
-          <h3>Fill the form is all you need</h3>
+          <h3>Get start to design your form</h3>
           <p>Please make sure all your personal information and card number is correct and indentical with you real ID！</p>
         </div>
 
-        
-
+        <p id="form-button">
+		<add>
+			<button id="addBox" >Add question</button>
+			<button id="deleteBox">Delete question</button>
+		</add>
+		</p>
+		
         <div class="form">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage"></div>
-          <form action="" method="post" role="form" class="contactForm">
             <div class="form-row">
               <div class="form-group col-md-3">
-                <p>Personal Info:</p>
+                <p>Set your form title</p>
               </div>
               <div class="form-group col-md-3">
-                <input type="text" name="First name" class="form-control" id="name" placeholder="First Name" data-rule="minlen:1" data-msg="Please enter at least 1 chars" />
-                <div class="validation"></div>
+                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
               </div>
-              <div class="form-group col-md-3">
-                <input type="text" name="Last name" class="form-control" id="name" placeholder="Last Name" data-rule="minlen:1" data-msg="Please enter at least 1 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group col-md-3">
+            
+              
                 
               </div>
             </div>
@@ -127,129 +128,89 @@
             <div class="form-row">
               <div class="form-group col-md-3">
                 
+              </div>
+			  
+              <div class="form-group col-md-6">
+                  <input type="Remarks" class="form-control" name="Remarks" id="Remarks" placeholder="Write your remarks" data-rule="Remarks" data-msg="Please enter a valid remark" />
+              </div>
+			</div>
+			
+			<div id="questionarea">
+			
+			<div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Question</p>
+              </div>
+              <div class="form-group col-md-3">
+                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
+              </div>
+			  </div>
+            </div>
+			
+			<div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Choice A</p>
               </div>
               <div class="form-group col-md-6">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email (As username)" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validation"></div>
+                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
               </div>
-
-              
-              <div class="form-group col-md-3">
-                
-              </div>
+			  </div>
             </div>
-
+			
+			<div class="form">
             <div class="form-row">
               <div class="form-group col-md-3">
-                  
+                <p>Choice B</p>
               </div>
               <div class="form-group col-md-6">
-                  <input type="creditCard" class="form-control" name="creditCard" id="creditCard" placeholder="Credit Card Num (Holder must be coincident with your name)" data-rule="minlen:13" data-msg="Please enter a valid creditcard" />
-                  <div class="validation"></div>
+                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
               </div>
-
-              
-              <div class="form-group col-md-3">
-                
-              </div>
+			  </div>
             </div>
-
+			
+			<div class="form">
             <div class="form-row">
               <div class="form-group col-md-3">
-                  
-              </div>
-              <div class="form-group col-md-2">
-                  <input type="pincode" class="form-control" name="pincode" id="pincode" placeholder="pin (last 3 digits)" data-rule="minlen:3"  data-msg="Please enter a valid pin code" />
-                  <div class="validation"></div>
-              </div>
-
-              
-              <div class="form-group col-md-7">
-                
-              </div>
-            </div>
-
-            
-
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Your Occupation Area:</p>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="checkbox" id="student&scholar" name="student&scholar" value="student&scholar">
-                   <label for="subscribeNews">Students & Scholars</label>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="checkbox" id="Business" name="Business" value="Business">
-                   <label for="subscribeNews">Business</label>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="checkbox" id="Science&technology" name="Science&technology" value="Science&technology">
-                   <label for="subscribeNews">Science & Tech</label>
-              </div>
-              
-              <div class="form-group col-md-3">
-                
-              </div>
-            </div>
-
-
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="checkbox" id="Arts&Literature" name="Arts&Literature" value="Arts&Literature">
-                   <label for="subscribeNews">Arts & Literature</label>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="checkbox" id="SocialWork" name="SocialWork" value="SocialWork">
-                   <label for="subscribeNews">Social works</label>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="checkbox" id="others" name="others" value="others">
-                   <label for="subscribeNews">Others</label>
-              </div>
-              
-              <div class="form-group col-md-3">
-                
-              </div>
-            </div>
-
-            
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Set Password:</p>
+                <p>Choice C</p>
               </div>
               <div class="form-group col-md-6">
-                <input type="text" name="Password" class="form-control" id="Password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
+                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
               </div>
-              
-              <div class="form-group col-md-3">
-                
-              </div>
+			  </div>
             </div>
-
+			
+			<div class="form">
             <div class="form-row">
               <div class="form-group col-md-3">
-                <p>Confirm Password:</p>
+                <p>Choice D</p>
               </div>
               <div class="form-group col-md-6">
-                <input type="text" name="Password2" class="form-control" id="Password2" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
+                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
               </div>
-              
-              <div class="form-group col-md-3">
-                
-              </div>
+			  </div>
             </div>
+		
+			
+			</div>
+           <div id="newquestionarea">
+		   </div>
+
+            
+
+            
+
+            
+           
 
 
             
             
             
-              <div class="text-center"><button type="submit">Submit</button></div>  
+            <br/>
+				<div class="text-center"><button type="submit">Submit</button></div>
+			 
         </form>
         </div>
 
@@ -351,6 +312,7 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  <script src="js/designform.js"></script>
 
 </body>
 </html>
