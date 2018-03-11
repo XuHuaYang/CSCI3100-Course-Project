@@ -1,23 +1,13 @@
-document.getElementById("textTitle").innerHTML="Enter you form title here";
+
 var AddButton = document.getElementById("addBox");
 var DeleteButton = document.getElementById("deleteBox");
 var SubmitButton = document.getElementById("submitBox");
 
-var ourHeadline = document.getElementById("our-headline");
-var listItems = document.getElementById("our-list").getElementsByTagName("li");
-
-for(i=0;i<listItems.length;i++){
-	listItems[i].addEventListener("click",activateItem);
-}
-
-function activateItem(){
-	ourHeadline.innerHTML=this.innerHTML;
-}
 
 AddButton.addEventListener("click",addTextBox);
 function addTextBox() {
-	var textBox=document.createElement("textarea");
-	document.getElementById("text").appendChild(textBox);
+	var questionset=document.createElement("input");
+	document.getElementById("newquestionarea").appendChild(questionset);
 }
 
 DeleteButton.addEventListener("click",deleteTextBox);
@@ -36,3 +26,4 @@ function submitMst(){
     var myJSON = JSON.stringify(data);//将dictionary转换成JSON
     myJSON.send();
 }
+
