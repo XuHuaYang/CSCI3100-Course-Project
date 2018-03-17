@@ -113,6 +113,42 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+#header .form input, #contact .form textarea {
+  padding: 10px 14px;
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 15px;
+}
+
+#header .form button[type="signup"] {
+  background: #18d26e;
+  border-radius: 15px;
+
+  border: 0;
+  padding: 3px 30px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#header .form button[type="signup"]:hover {
+  background: #13a456;
+}
+#header .form button[type="loginbutton"] {
+  background: #18d26e;
+  border-radius: 15px;
+
+  border: 0;
+  padding: 3px 30px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#header .form button[type="loginbutton"]:hover {
+  background: #13a456;
+}
+
 @media (max-width: 768px) {
   #header #logo h1 {
     font-size: 28px;
@@ -1562,3 +1598,28 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
   color: #ddd;
 }
+
+#form-button{
+	text-align:center;
+}
+
+
+/*--------------------------------------------------------------
+# Buyer
+--------------------------------------------------------------*/
+
+#buyer .form button[type="submit"] {
+  background: #18d26e;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#buyer .form button[type="submit"]:hover {
+  background: #13a456;
+}
+
+
+
