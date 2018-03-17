@@ -95,14 +95,9 @@
   th {
     background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
     background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
+    text-align:center;
   }
   
-  /*
-  I know this is annoying, but we need additional styling so webkit will recognize rounded corners on background elements.
-  Nice write up of this issue: http://www.onenaught.com/posts/266/css-inner-elements-breaking-border-radius
-  
-  And, since we've applied the background colors to td/th element because of IE, Gecko browsers also need it.
-  */
   
   tr:first-child th.first {
     -moz-border-radius-topleft:5px;
@@ -123,11 +118,13 @@
     -moz-border-radius-bottomright:5px;
     -webkit-border-bottom-right-radius:5px; /* Saf3-4 */
   }
-
+td {text-align:center;  white-space: nowrap;}
+    table {text-align: center;}
 </style>
 
 <style> 
 .divcss5-cent{margin:0 auto;width:250px;height:50px;border:1px solid #F00} 
+
 </style> 
 
 
@@ -162,39 +159,63 @@
         <h1><a href="homepage.html" class="scrollto">Mr.Stat's</a></h1>
       </div>
       <br/>
+        <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="main.html">Home</a></li>
+          <li class="menu-active"><a href="buyer.html">Purchase</a></li>
+          <li><a href="designform.html">Release</a></li>
+          <li ><a href="user.html">Account</a></li>
+          <li><a href="IntroPage.html">Sign out</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
    <br/>
    <br/>
    <br/>
    <br/> 
-   <form>
-    <div class="container">
-        <div id="search" >
+ 
+   
+    <section id="buyer"> 
+    <div class="container"><div class="form">
+        <form>   
             <label for="search" class="scrollto">Search for the questionaire</label>
             <br/>
-            <input type="text" name="q", style="height: 50px;width:550px;">
-            <input class="button" type="submit" value="Search">
+            <input type="text" name="q", style="height: 50px;width:550px;">  
+             <button type="submit">Search</button action="">
+        </form>
+      
+    
+
+   
+        <div>
+          <table border="1" cellpadding="10">
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Topic</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>2018-03-07</td>
+              <td>A Simple Psychological Quesionnare1</td>
+              <td>Business</td>
+              <td><button type="submit">Purchase</button action=""></td>
+            </tr>
+
+            <tr>
+              <td>2017-11-07</td>
+              <td>A Simple Psychological Quesionnare2</td>
+              <td>Social Works</td>
+              <td><button type="submit">Purchase</button action=""></td>
+            </tr>
+            <tr>
+              <td>2017-02-22</td>
+              <td>A Simple Psychological Quesionnare3</td>
+              <td>Others</td>
+              <td><button type="submit">Purchase</button action=""></td>
+            </tr>
+          </table>
+        </div> 
         </div>
-    </div>
-    </form>
-    <table>
-      <tr>
-          <td> questionaire 1</td>
-      </tr>
-       <tr>
-          <td> questionaire 2</td>
-      </tr>
-       <tr>
-          <td> questionaire 3</td>
-      </tr>
-       <tr>
-          <td> questionaire 4</td>
-      </tr>
-       <tr>
-          <td> questionaire 5</td>
-      </tr>
-       <tr>
-          <td> questionaire 6</td>
-      </tr>
-   </table>
-</body>>
+</section> 
+</body>
 </html>
