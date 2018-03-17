@@ -933,13 +933,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #portfolio .portfolio-item {
   position: relative;
-  height: 360px;
+  height: 125px;
   overflow: hidden;
 }
 
 #portfolio .portfolio-item figure {
   background: #000;
-  overflow: hidden;
+  overflow: auto;
   height: 240px;
   position: relative;
   border-radius: 4px 4px 0 0;
@@ -1014,21 +1014,21 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-bottom: 0;
 }
 
-#portfolio .portfolio-item .portfolio-info h4 a {
+#portfolio .portfolio-item .portfolio-info  a {
   color: #333;
 }
 
-#portfolio .portfolio-item .portfolio-info h4 a:hover {
+#portfolio .portfolio-item .portfolio-info p a:hover {
   color: #18d26e;
 }
 
 #portfolio .portfolio-item .portfolio-info p {
-  padding: 0;
+  padding: 30;
   margin: 0;
   color: #b8b8b8;
   font-weight: 500;
   font-size: 14px;
-  text-transform: uppercase;
+
 }
 
 /* Clients Section
@@ -1602,3 +1602,24 @@ body.mobile-nav-active #mobile-nav-toggle {
 #form-button{
 	text-align:center;
 }
+
+
+/*--------------------------------------------------------------
+# Buyer
+--------------------------------------------------------------*/
+
+#buyer .form button[type="submit"] {
+  background: #18d26e;
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#buyer .form button[type="submit"]:hover {
+  background: #13a456;
+}
+
+
+

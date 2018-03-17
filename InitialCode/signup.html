@@ -26,7 +26,45 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-
+  <script type="text/javascript" src="C:/Users/LI%20Siyao/Desktop/CSCI3100-Course-Project-master/InitialCode/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript">
+    function saveJson1(){
+      var data = '{"FirstName":"", "LastName":"", "Email":"", "CreditCard":"", "Pincode":"", "Password":"", "area1":false, "area2":false, "area3":false, "area4":false, "area5":false, "area6":false}';
+      var obj = JSON.parse(data);
+      obj.FirstName=document.getElementById("first_name").value;
+      obj.LastName=document.getElementById("last_name").value;
+      obj.Email=document.getElementById("email").value;
+      obj.CreditCard=document.getElementById("creditCard").value;
+      obj.Pincode=document.getElementById("pincode").value;
+      obj.area1=document.getElementById("student&scholar").checked;
+      obj.area2=document.getElementById("Business").checked;
+      obj.area3=document.getElementById("Science&technology").checked;
+      obj.area4=document.getElementById("Arts&Literature").checked;
+      obj.area5=document.getElementById("SocialWork").checked;
+      obj.area6=document.getElementById("others").checked;
+      var pswd1 = document.getElementById("Password").value;
+      var pswd2 = document.getElementById("Password2").value;
+      if (pswd1==pswd2) {
+        obj.Password = pswd1;
+        $.ajax({
+          type:'post',
+          url:"sub_form.php",
+          data:obj,
+          dataType:"json",
+          success:function(obj){  
+            obj = eval("("+obj+")");//解析json数据  
+            if(obj.status = "Success"){  
+              alert("Post success")  
+            }else{  
+              alert('Post failed')  
+            }  
+          }  
+        })
+    }
+    else
+      alert("Passwords should be the same");
+  }
+  </script>
   
 </head>
 
@@ -44,10 +82,10 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="main.html">Home</a></li>
-          <li><a href="buyer.html">Purchase</a></li>
-          <li><a href="Design_form.html">Release</a></li>
+         
+          
           <li><a href="user.html">Account</a></li>
-		  <li class="menu-active"><a href="signup.html">LOGIN</a></li>
+      <li class="menu-active"><a href="signup.html">LOGIN</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -249,7 +287,7 @@
             
             
             
-              <div class="text-center"><button type="submit">Submit</button></div>  
+              <div class="text-center"><button type="submit" onclick="saveJson1();">Submit</button></div>  
         </form>
         </div>
 
