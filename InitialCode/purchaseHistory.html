@@ -89,10 +89,6 @@
   
   td.last {border-right:none;}
   
-  /*
-  Background gradients are completely unnecessary but a neat effect.
-  */
-  
   td {
     background: -moz-linear-gradient(100% 25% 90deg, #fefefe, #f9f9f9);
     background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f9f9f9), to(#fefefe));
@@ -107,13 +103,6 @@
     background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
     background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
   }
-  
-  /*
-  I know this is annoying, but we need additional styling so webkit will recognize rounded corners on background elements.
-  Nice write up of this issue: http://www.onenaught.com/posts/266/css-inner-elements-breaking-border-radius
-  
-  And, since we've applied the background colors to td/th element because of IE, Gecko browsers also need it.
-  */
   
   tr:first-child th.first {
     -moz-border-radius-topleft:5px;
