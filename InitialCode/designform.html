@@ -26,6 +26,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/designform.css" rel="stylesheet">
 
   
 </head>
@@ -49,8 +50,8 @@
         <ul class="nav-menu">
           <li><a href="main.html">Home</a></li>
           <li><a href="buyer.html">Purchase</a></li>
-          <li><a href="Design_form.html">Release</a></li>
-          <li class="menu-active"><a href="user.html">Account</a></li>
+          <li class="menu-active"><a href="Design_form.html">Release</a></li>
+          <li><a href="user.html">Account</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -100,7 +101,6 @@
         <div class="section-header">
           <p></p>
           <h3>Get start to design your form</h3>
-          <p>Please make sure all your personal information and card number is correct and indentical with you real ID！</p>
         </div>
 
         <p id="form-button">
@@ -116,7 +116,7 @@
                 <p>Set your form title</p>
               </div>
               <div class="form-group col-md-3">
-                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
+                <input id="questiontitle"/>
               </div>
             
               
@@ -134,8 +134,8 @@
                   <input type="Remarks" class="form-control" name="Remarks" id="Remarks" placeholder="Write your remarks" data-rule="Remarks" data-msg="Please enter a valid remark" />
               </div>
 			</div>
+			<br/>
 			
-			<div id="questionarea">
 			
 			<div class="form">
             <div class="form-row">
@@ -143,7 +143,7 @@
                 <p>Question</p>
               </div>
               <div class="form-group col-md-3">
-                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
+                <input/>
               </div>
 			  </div>
             </div>
@@ -154,7 +154,7 @@
                 <p>Choice A</p>
               </div>
               <div class="form-group col-md-6">
-                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
+                <input/>
               </div>
 			  </div>
             </div>
@@ -165,7 +165,7 @@
                 <p>Choice B</p>
               </div>
               <div class="form-group col-md-6">
-                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
+                <input/>
               </div>
 			  </div>
             </div>
@@ -176,7 +176,7 @@
                 <p>Choice C</p>
               </div>
               <div class="form-group col-md-6">
-                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
+                <input/>
               </div>
 			  </div>
             </div>
@@ -187,17 +187,28 @@
                 <p>Choice D</p>
               </div>
               <div class="form-group col-md-6">
-                <input type="Form title" name="Form title" class="form-control" id="Form title" placeholder="Form title" data-rule="Form title" data-msg="Please enter at least 1 chars" />
+                <input/>
               </div>
 			  </div>
             </div>
-		
-			
-			</div>
-           <div id="newquestionarea">
-		   </div>
 
-            
+			
+
+
+            <div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <div id="newquestiontitlearea">
+				
+				</div>
+              </div>
+              <div class="form-group col-md-6">
+                <div id="newquestionarea">
+				
+		   </div>
+              </div>
+			  </div>
+            </div>
 
             
 
