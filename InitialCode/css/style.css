@@ -122,6 +122,23 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
 }
 
+#header .form a.button {
+  background: #18d26e;
+  border-radius: 15px;
+
+  border: 0;
+  padding: 6px 25px;
+  color: #fff;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+
+#header .form a.button:hover {
+  background: #13a456;
+}
+
+
 #header .form button[type="signup"] {
   background: #18d26e;
   border-radius: 15px;
