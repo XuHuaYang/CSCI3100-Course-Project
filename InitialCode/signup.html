@@ -26,7 +26,6 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="C:/Users/LI%20Siyao/Desktop/CSCI3100-Course-Project-master/InitialCode/lib/jquery/jquery.min.js"></script>
   <script type="text/javascript">
     function saveJson1(){
       var data = '{"FirstName":"", "LastName":"", "Email":"", "CreditCard":"", "Pincode":"", "Password":"", "area1":false, "area2":false, "area3":false, "area4":false, "area5":false, "area6":false}';
@@ -44,22 +43,39 @@
       obj.area6=document.getElementById("others").checked;
       var pswd1 = document.getElementById("Password").value;
       var pswd2 = document.getElementById("Password2").value;
-      if (pswd1==pswd2) {
+      if (obj.FirstName=="")
+        alert("Please enter your first name");
+      else if(obj.LastName=="")
+        alert("Please enter your last name");
+      else if(obj.Email=="")
+        alert("Please enter your email address");
+      else if(obj.CreditCard=="")
+        alert("Please enter your creditcard No.");
+      else if(obj.Pincode=="")
+        alert("Please enter your pincode");
+      else if(obj.area1==false && obj.area2==false && obj.area3==false && obj.area4==false && obj.area5==false && obj.area6==false)
+        alert("Please select an Occupation Area");
+      else if (pswd1=="" || pswd2=="")
+        alert("Please enter your password");
+      else if (pswd1==pswd2) {
         obj.Password = pswd1;
+        //alert("Posting..");
         $.ajax({
           type:'post',
           url:"sub_form.php",
           data:obj,
           dataType:"json",
-          success:function(obj){  
-            obj = eval("("+obj+")");//解析json数据  
-            if(obj.status = "Success"){  
-              alert("Post success")  
-            }else{  
-              alert('Post failed')  
-            }  
-          }  
+          async:false,
+          success:function(msg){  
+            alert("Sign up successful");
+          }, 
+          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+          } 
         })
+        //alert("End posting.");
     }
     else
       alert("Passwords should be the same");
