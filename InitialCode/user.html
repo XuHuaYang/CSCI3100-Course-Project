@@ -4,7 +4,29 @@
 <head>
   <meta charset="utf-8">
   <title>UserPage</title>
-  <script language="JavaScript"></script>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript">
+    function getUserInfo(){
+      $.ajax({
+          type:'post',
+          url:"user_info.php",
+          dataType:"json",
+          async:false,
+          success:function(data){  
+            $("#userID").html(data.userID);
+            $("#userName").html(data.userName);
+            $("#userSex").html(data.userSex);
+            $("#userAge").html(data.userAge);
+            $("#userPoint").html(data.userPoint);
+          }, 
+          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+          }
+      })
+    }
+  </script>
   <style>
     #nav {
     line-height:20px;
@@ -56,7 +78,7 @@
 <!-- <body style="background-image:url('img/black.png')"> -->
 
 
-<body>
+<body onload="getUserInfo();">
 	<header id="header" style="background-color:black">
     <div class="container-fluid">
 
@@ -91,27 +113,27 @@
         <div class="padding-dom"></div>
         <div>
           <p>UserID: 
-            <label>UID</label><br>
+            <label id="userID"></label><br>
           </p>
         </div>
         <div>
           <p>Username: 
-            <label>UserName</label><br>
+            <label id="userName"></label><br>
           </p>
         </div>
         <div>
           <p>Sex: 
-            <label>Male</label><br>
+            <label id="userSex"></label><br>
           </p>
         </div>
         <div>
           <p>Age: 
-            <label>18</label><br>
+            <label id="userAge"></label><br>
           </p>
         </div>
         <div>
           <p>Rewards Point: 
-            <label>0</label><br>
+            <label id="userPoint"></label><br>
           </p>
         </div>
       </div>
