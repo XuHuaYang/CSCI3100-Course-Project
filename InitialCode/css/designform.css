@@ -7,3 +7,14 @@
 	
 }
 
+#addBox,#deleteBox{
+	background: #ededed;
+  border: 1px solid #ccc;
+  padding: 10px 30px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#addBox:hover,#deleteBox:hover {
+  background: #e5e5e5;
+}
