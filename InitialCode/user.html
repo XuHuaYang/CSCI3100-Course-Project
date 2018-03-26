@@ -6,10 +6,52 @@
   <title>UserPage</title>
   <script src="lib/jquery/jquery.min.js"></script>
   <script type="text/javascript">
+    function jumpUser(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "user.html?id="+id;
+      return false;
+    }
+    function jumpRelease(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "designform.html?id="+id;
+      return false;
+    }
+    function jumpBuyer(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "buyer.html?id="+id;
+      return false;
+    }
+    function jumpMain(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "main.html?id="+id;
+      return false;
+    }
+    function jumpHis1(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "releaseHistory.html?id="+id;
+      return false;
+    }
+    function jumpHis2(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "purchaseHistory.html?id="+id;
+      return false;
+    }
     function getUserInfo(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      var data = '{"id":-1}';
+      var obj = JSON.parse(data);
+      obj.id = id;
       $.ajax({
           type:'post',
           url:"user_info.php",
+          data:obj,
           dataType:"json",
           async:false,
           success:function(data){  
@@ -90,10 +132,10 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="main.html">Home</a></li>
-          <li><a href="buyer.html">Purchase</a></li>
-          <li><a href="designform.html">Release</a></li>
-          <li class="menu-active"><a href="user.html">Account</a></li>
+          <li><a onclick="return jumpMain();" href="">Home</a></li>
+          <li><a onclick="return jumpBuyer();" href="">Purchase</a></li>
+          <li><a onclick="return jumpRelease();" href="">Release</a></li>
+          <li class="menu-active"><a onclick="return jumpUser();" href="">Account</a></li>
           <li><a href="IntroPage.html">Sign out</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -102,9 +144,9 @@
 
     <div id="nav">
       <br><br><br>
-      <p><a href="user.html">User Account</a></p><br>
-      <p><a href="releaseHistory.html"><font color="white">Release History</font></a></p><br>
-      <p><a href="purchaseHistory.html"><font color="white">Purchase History</font></a></p><br>        
+      <p><a onclick="return jumpUser();" href="">User Account</a></p><br>
+      <p><a onclick="return jumpHis1();" href=""><font color="white">Release History</font></a></p><br>
+      <p><a onclick="return jumpHis2();" href=""><font color="white">Purchase History</font></a></p><br>        
     </div>
 
     

@@ -7,6 +7,33 @@
   <meta content="" name="keywords">
   <meta content="" name="description">
 
+  <script type="text/javascript">
+    function jumpUser(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "user.html?id="+id;
+      return false;
+    }
+    function jumpRelease(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "designform.html?id="+id;
+      return false;
+    }
+    function jumpBuyer(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "buyer.html?id="+id;
+      return false;
+    }
+    function jumpMain(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "main.html?id="+id;
+      return false;
+    }
+  </script>
+
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -32,7 +59,7 @@
 </head>
 
 <body>
-	
+  
 
   <!--==========================
     Header
@@ -48,11 +75,11 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="main.html">Home</a></li>
-          <li><a href="buyer.html">Purchase</a></li>
-          <li class="menu-active"><a href="Design_form.html">Release</a></li>
-          <li><a href="user.html">Account</a></li>
-		  <li><a href="IntroPage.html">Sign out</a></li>
+          <li><a onclick="return jumpMain();" href="">Home</a></li>                  
+          <li><a onclick="return jumpBuyer();" href="">Purchase</a></li>
+          <li class="menu-active"><a onclick="return jumpRelease();" href="">Release</a></li>
+          <li><a onclick="return jumpUser();" href="">Account</a></li>
+          <li><a href="IntroPage.html">Sign out</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -78,11 +105,11 @@
         </div>
 
         <p id="form-button">
-		<add>
-			<button id="addBox" >Add question</button>
-			<button id="deleteBox">Delete question</button>
-		</add>
-		</p>
+    <add>
+      <button id="addBox" >Add question</button>
+      <button id="deleteBox">Delete question</button>
+    </add>
+    </p>
 
           <div class="form">
             <div class="form-row">
@@ -156,11 +183,81 @@
               <div class="form-group col-md-3">
                 <input class="inputbox">
               </div>
+<<<<<<< HEAD
 			     </div>
+=======
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Confirm Password:</p>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="text" name="Password2" class="form-control" id="Password2" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+
+            
+            
+            
+              <div class="text-center"><button type="submit" onclick="saveJson1();">Submit</button></div>  
+        </form>
+        </div>
+
+      </div>
+    </section>
+    
+        <div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Set your form title:</p>
+              </div>
+              <div class="form-group col-md-3">
+                <input id="questiontitle"/ placeholder="Title of the form">
+              </div>
+            
+              
+                
+>>>>>>> e08e9386ea4556934a2e81bf491f16abaa127054
               </div>
 
+<<<<<<< HEAD
 			
 			<div class="form">
+=======
+
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                
+              </div>
+        
+              <div class="form-group col-md-6">
+                  
+              </div>
+      </div>
+      <br/>
+      
+      
+      <div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Question:</p>
+              </div>
+              <div class="form-group col-md-3">
+                <input>
+              </div>
+        </div>
+            </div>
+      
+      <div class="form">
+>>>>>>> e08e9386ea4556934a2e81bf491f16abaa127054
             <div class="form-row">
               <div class="form-group col-md-3">
                 <p>Choice A:</p>
@@ -168,11 +265,16 @@
               <div class="form-group col-md-6">
                 <input class="inputbox">
               </div>
-			  </div>
+        </div>
             </div>
+<<<<<<< HEAD
 
 			
 			<div class="form">
+=======
+      
+      <div class="form">
+>>>>>>> e08e9386ea4556934a2e81bf491f16abaa127054
             <div class="form-row">
               <div class="form-group col-md-3">
                 <p>Choice B:</p>
@@ -180,11 +282,16 @@
               <div class="form-group col-md-6">
                 <input class="inputbox">
               </div>
-			  </div>
+        </div>
             </div>
+<<<<<<< HEAD
 			
 
 			<div class="form">
+=======
+      
+      <div class="form">
+>>>>>>> e08e9386ea4556934a2e81bf491f16abaa127054
             <div class="form-row">
               <div class="form-group col-md-3">
                 <p>Choice C:</p>
@@ -192,11 +299,16 @@
               <div class="form-group col-md-6">
                 <input class="inputbox">
               </div>
-			  </div>
+        </div>
             </div>
+<<<<<<< HEAD
 			
       
 			<div class="form">
+=======
+      
+      <div class="form">
+>>>>>>> e08e9386ea4556934a2e81bf491f16abaa127054
             <div class="form-row">
               <div class="form-group col-md-3">
                 <p>Choice D:</p>
@@ -204,25 +316,25 @@
               <div class="form-group col-md-6">
                 <input class="inputbox">
               </div>
-			  </div>
+        </div>
             </div>
 
-			
+      
 
 
             <div class="form">
             <div class="form-row">
               <div class="form-group col-md-3">
                 <div id="newquestiontitlearea">
-				
-				</div>
+        
+        </div>
               </div>
               <div class="form-group col-md-6">
                 <div id="newquestionarea">
-				
-		   </div>
+        
+       </div>
               </div>
-			  </div>
+        </div>
             </div>
 
             
@@ -235,8 +347,8 @@
             
             
             <br/>
-				<div class="text-center"><button type="submit" id="submitbutton">Submit</button></div>
-			 
+        <div class="text-center"><button type="submit" id="submitbutton">Submit</button></div>
+       
         </form>
         </div>
 
