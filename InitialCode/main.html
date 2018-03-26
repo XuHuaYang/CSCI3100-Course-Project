@@ -29,6 +29,12 @@
       window.location.href = "buyer.html?id="+id;
       return false;
     }
+    function jumpMain(){
+      var para = location.search.substring(1);
+      var id = para.replace('id=','');
+      window.location.href = "main.html?id="+id;
+      return false;
+    }
   </script>
   
   <!-- Favicons -->
@@ -70,7 +76,7 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="main.html">Home</a></li>
+          <li class="menu-active"><a onclick="return jumpMain();" href="">Home</a></li>
           <li><a onclick="return jumpBuyer();" href="">Purchase</a></li>
           <li><a onclick="return jumpRelease();" href="">Release</a></li>
           <li><a onclick="return jumpUser();" href="">Account</a></li>
