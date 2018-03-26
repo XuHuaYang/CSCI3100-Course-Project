@@ -27,3 +27,8 @@ input{
 body{
 	font-size: 20px;
 }
+
+input::-webkit-input-placeholder {
+    font-size: 20px;
+   
+}

@@ -28,6 +28,7 @@ function addTextBox() {
 	document.getElementById("newquestionarea").appendChild(blank);
 	
 	
+	
 	var question=document.createTextNode("Question");
 	document.getElementById("newquestiontitlearea").appendChild(question);
 	var blank=document.createElement("p");
