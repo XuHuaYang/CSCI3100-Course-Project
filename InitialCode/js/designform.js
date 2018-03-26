@@ -4,32 +4,53 @@ var DeleteButton = document.getElementById("deleteBox");
 var SubmitButton = document.getElementById("submitBox");
 
 
+
 AddButton.addEventListener("click",addTextBox);
 function addTextBox() {
+	
 	var questionbox=document.createElement("input");
+	var att=document.createAttribute("class");
+	att.value="inputbox";
+	questionbox.setAttributeNode(att);
 	document.getElementById("newquestionarea").appendChild(questionbox);
 	var blank=document.createElement("p");
 	document.getElementById("newquestionarea").appendChild(blank);
+	
 	var questionbox=document.createElement("input");
+	var att=document.createAttribute("class");
+	att.value="inputbox";
+	questionbox.setAttributeNode(att);
 	document.getElementById("newquestionarea").appendChild(questionbox);
 	var blank=document.createElement("p");
 	document.getElementById("newquestionarea").appendChild(blank);
+	
 	var questionbox=document.createElement("input");
+	var att=document.createAttribute("class");
+	att.value="inputbox";
+	questionbox.setAttributeNode(att);
 	document.getElementById("newquestionarea").appendChild(questionbox);
 	var blank=document.createElement("p");
 	document.getElementById("newquestionarea").appendChild(blank);
+	
 	var questionbox=document.createElement("input");
+	var att=document.createAttribute("class");
+	att.value="inputbox";
+	questionbox.setAttributeNode(att);
 	document.getElementById("newquestionarea").appendChild(questionbox);
 	var blank=document.createElement("p");
 	document.getElementById("newquestionarea").appendChild(blank);
+	
 	var questionbox=document.createElement("input");
+	var att=document.createAttribute("class");
+	att.value="inputbox";
+	questionbox.setAttributeNode(att);
 	document.getElementById("newquestionarea").appendChild(questionbox);
 	var blank=document.createElement("p");
 	document.getElementById("newquestionarea").appendChild(blank);
 	
 	
-	
-	var question=document.createTextNode("Question");
+	var question=document.createElement("H5");
+	question.innerHTML="Question:";
 	document.getElementById("newquestiontitlearea").appendChild(question);
 	var blank=document.createElement("p");
 	document.getElementById("newquestiontitlearea").appendChild(blank);

@@ -3,7 +3,7 @@
 
 
 #newquestiontitlearea{
-	line-height:46px;
+	line-height:52px;
 	
 }
 
@@ -19,16 +19,10 @@
   background: #e5e5e5;
 }
 
-input{
+.inputbox{
 	width: 600px;
 
 }
 
-body{
-	font-size: 20px;
-}
 
-input::-webkit-input-placeholder {
-    font-size: 20px;
-   
-}
+
