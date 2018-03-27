@@ -60,6 +60,7 @@
 
 <body>
   
+	
 
   <!--==========================
     Header
@@ -75,11 +76,11 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a onclick="return jumpMain();" href="">Home</a></li>                  
-          <li><a onclick="return jumpBuyer();" href="">Purchase</a></li>
-          <li class="menu-active"><a onclick="return jumpRelease();" href="">Release</a></li>
-          <li><a onclick="return jumpUser();" href="">Account</a></li>
-          <li><a href="IntroPage.html">Sign out</a></li>
+          <li><a href="main.html">Home</a></li>
+          <li><a href="buyer.html">Purchase</a></li>
+          <li class="menu-active"><a href="Design_form.html">Release</a></li>
+          <li><a href="user.html">Account</a></li>
+		  <li><a href="IntroPage.html">Sign out</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -105,11 +106,11 @@
         </div>
 
         <p id="form-button">
-    <add>
-      <button id="addBox" >Add question</button>
-      <button id="deleteBox">Delete question</button>
-    </add>
-    </p>
+		<add>
+			<button id="addBox" >Add question</button>
+			<button id="deleteBox">Delete question</button>
+		</add>
+		</p>
 
           <div class="form">
             <div class="form-row">
@@ -181,80 +182,14 @@
                 <h5 class="questionbold">Question:</h5>
               </div>
               <div class="form-group col-md-3">
-                <input class="inputbox">
+                <input class="inputbox" name="question">
               </div>
-
 			     </div>
-
             </div>
 
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Confirm Password:</p>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="text" name="Password2" class="form-control" id="Password2" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              
-              <div class="form-group col-md-3">
-                
-              </div>
-            </div>
-
-
             
-            
-            
-              <div class="text-center"><button type="submit" onclick="saveJson1();">Submit</button></div>  
-        </form>
-        </div>
-
-      </div>
-    </section>
-    
-        <div class="form">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Set your form title:</p>
-              </div>
-              <div class="form-group col-md-3">
-                <input id="questiontitle"/ placeholder="Title of the form">
-              </div>
-            
-              
-                
-
-              </div>
 
 
-			
-			<div class="form">
-
-
-
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                
-              </div>
-        
-              <div class="form-group col-md-6">
-                  
-              </div>
-      </div>
-      <br/>
-      
-      
-      <div class="form">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Question:</p>
-              </div>
-              <div class="form-group col-md-3">
-                <input>
-              </div>
-        </div>
-            </div>
       
       <div class="form">
 
@@ -263,14 +198,13 @@
                 <p>Choice A:</p>
               </div>
               <div class="form-group col-md-6">
-                <input class="inputbox">
+                <input class="inputbox" name="choiceA">
               </div>
         </div>
             </div>
 
 
-			
-			<div class="form">
+
 
       
       <div class="form">
@@ -280,32 +214,27 @@
                 <p>Choice B:</p>
               </div>
               <div class="form-group col-md-6">
-                <input class="inputbox">
+                <input class="inputbox" name="choiceB">
               </div>
         </div>
             </div>
 
-			
-
-			<div class="form">
 
       
-      <div class="form">
 
+      <div class="form">
             <div class="form-row">
               <div class="form-group col-md-3">
                 <p>Choice C:</p>
               </div>
               <div class="form-group col-md-6">
-                <input class="inputbox">
+                <input class="inputbox" name="choiceC">
               </div>
         </div>
             </div>
 
-			
-      
-			<div class="form">
 
+         
       
       <div class="form">
 
@@ -314,7 +243,7 @@
                 <p>Choice D:</p>
               </div>
               <div class="form-group col-md-6">
-                <input class="inputbox">
+                <input class="inputbox" name="choiceD">
               </div>
         </div>
             </div>
@@ -337,25 +266,20 @@
         </div>
             </div>
 
-            
-
-            
-           
-
-
-            
-            
+  
             
             <br/>
         <div class="text-center"><button type="submit" id="submitbutton">Submit</button></div>
-       
-        </form>
-        </div>
+   
+    </section>
+    
+        
 
-      </div>
-    </section><!-- #register form -->
 
-  </main>
+			
+			
+      
+ 
 
   <!--==========================
     Footer
