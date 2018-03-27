@@ -3,11 +3,13 @@
     header('Content-Type: text/html;charset=utf-8');
     $id = $_POST["id"];
 
-    $userName = "LSY";
-    $userSex = "male";
-    $userAge = 18;
     $userPoint = 100;
-    $json_arr = array("userID"=>$id,"userName"=>$userName,"userSex"=>$userSex,"userAge"=>$userAge,"userPoint"=>$userPoint);
+    $purchaseNum = 2;
+    $Nid = array(1,2);
+    $Ncap = array(500,500);
+    $Nstatus = array(1,0);
+    $Ntitle = array("A simple survey", "Template2");
+    $json_arr = array("userPoint"=>$userPoint,"purchaseNum"=>$purchaseNum, "Nid"=>$Nid, "Ntitle"=>$Ntitle, "Ncap"=>$Ncap, "Nstatus"=>$Nstatus);
     echo json_encode($json_arr);
     exit;
 ?>

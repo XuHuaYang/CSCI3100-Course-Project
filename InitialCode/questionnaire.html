@@ -18,7 +18,9 @@ questionnaire_content
     function loadQustions(){
       var data = '{"nid":-1}';
       var obj = JSON.parse(data);
-      obj.nid = 1;
+      var para = location.search.substring(1);
+      var nid = para.replace('nid=','');
+      obj.nid = nid;
       $.ajax({
           type:'post',
           url:"fetchquestion.php",

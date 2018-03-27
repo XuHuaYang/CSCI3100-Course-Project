@@ -4,21 +4,48 @@
 <head>
   <meta charset="utf-8">
   <title>UserPage</title>
+  <script src="lib/jquery/jquery.min.js"></script>
   <script language="JavaScript"></script>
   <script type="text/javascript">
     function getUserInfo(){
-      var para = location.search.substring(1);
-      var id = para.replace('id=','');
       var data = '{"id":-1}';
       var obj = JSON.parse(data);
-      obj.id = id;
+      obj.id = sessionStorage.getItem('id');
       $.ajax({
           type:'post',
           url:"user_info.php",
           data:obj,
           dataType:"json",
           async:false,
-          success:function(data){  
+          success:function(msg){
+            var n = msg.purchaseNum;
+            for (var j=0; j<n; j++)
+            {
+              var table_content=$("<tr>");
+              var nContent1 = $("<td>"+msg.Nid[j]+"</td>");
+              nContent1.appendTo(table_content);
+              var nContent2 = $("<td>"+msg.Ntitle[j]+"</td>");
+              nContent2.appendTo(table_content);
+              var nContent3 = $("<td>"+msg.Ncap[j]+"</td>");
+              nContent3.appendTo(table_content);
+              if(msg.Nstatus[j] == 1){
+                var nContent4 = $("<td>Finished</td>");
+                nContent4.appendTo(table_content);
+                var url = "questionnaire.html?nid="+msg.Nid[j];
+                var nContent5 = $("<td><li><a href=\""+url+"\">View</a></li></td>");
+                nContent5.appendTo(table_content);
+              }                
+              else if(msg.Nstatus[j] == 0){
+                var nContent4 = $("<td>Unfinished</td>");
+                nContent4.appendTo(table_content);
+                var url = "questionnaire.html?nid="+msg.Nid[j];
+                var nContent5 = $("<td><li><a href=\""+url+"\">View</a></li></td>");
+                nContent5.appendTo(table_content);
+              }
+              var tr = $("</tr>");
+              tr.appendTo(table_content);
+              table_content.appendTo($("#table"));
+            }           
           }, 
           error:function(XMLHttpRequest, textStatus, errorThrown){ 
             //alert(XMLHttpRequest.status);
@@ -170,7 +197,7 @@
 </head>
 
 <!-- <body style="background-image:url('img/black.png')"> -->
-<body>
+<body onload="getUserInfo();">
     <header id="header" style="background-color:black">
     <div class="container-fluid">
 
@@ -204,34 +231,13 @@
       <div class="user-setting-warp">
         <div class="padding-dom"></div>
         <div>
-          <table border="1" cellpadding="10">
+          <table border="1" cellpadding="10" id="table">
             <tr>
-              <th>Date</th>
+              <th>NID</th>
               <th>Title</th>
               <th>Capacity</th>
               <th>Status</th>
-              <th>Link</th>
-            </tr>
-            <tr>
-              <td>2018-03-07</td>
-              <td>A Simple Psychological Quesionnare1</td>
-              <td>500</td>
-              <td>Not Completed</td>
-              <td>"1.html"</td>
-            </tr>
-            <tr>
-              <td>2017-11-07</td>
-              <td>A Simple Psychological Quesionnare2</td>
-              <td>500</td>
-              <td>Completed</td>
-              <td>"2.html"</td>
-            </tr>
-            <tr>
-              <td>2017-02-22</td>
-              <td>A Simple Psychological Quesionnare3</td>
-              <td>500</td>
-              <td>Completed</td>
-              <td>"3.html"</td>
+              <th>View</th>
             </tr>
           </table>
         </div>
