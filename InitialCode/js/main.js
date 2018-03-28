@@ -24,6 +24,8 @@ jQuery(document).ready(function( $ ) {
     speed: 400
   });
 
+
+
   // Mobile Navigation
   if ($('#nav-menu-container').length) {
     var $mobile_nav = $('#nav-menu-container').clone().prop({
@@ -124,53 +126,18 @@ jQuery(document).ready(function( $ ) {
     allowPageScroll:"vertical"
   });
 
-  // Skills section
-  /*$('#skills').waypoint(function() {
-    $('.progress .progress-bar').each(function() {
-      $(this).css("width", $(this).attr("aria-valuenow") + '%');
-    });
-  }, { offset: '80%'} );*/
-
   // jQuery counterUp (used in Facts section)
   $('[data-toggle="counter-up"]').counterUp({
     delay: 10,
     time: 1000
   });
 
-  //Load portfolio-item object
-    //$(.portfolio-item).action(load());         //request data from server and load it to items
-    //$(.questionnaire_title).click(function()); //description:when click create a new window and put questionnaire
-    // on it
-    /*var a=$("#title").load("main.php questionnaire_header",function(responseTxt ){
-        alert("Load has performed."+ responseTxt);
-    });*/
-    /*
-    for (var i=1; i<=12; i++)
-    {
-        $.get("main.php", {
-            questionnaire_header :  $("questionnaire_header").val() ,
-        }, function (data, textStatus){
-            var temp=
-            $(".questionnaire_title".concat($i),).html(data); // 把返回的数据添加到页面上
-        });
-    }
-     */
-    /*$.get("main.php", {//可行，不过麻烦
-        questionnaire_header:  $("questionnaire_header1").val() ,
-    }, function (data, textStatus){
-        $(".questionnaire_header1").html(data);
-    });*/
-    /*$.get("main.php", {//XML type
-         questionnaire_header:  $("1").val()
-    }, function (data, textStatus){
-        var questionnaire_header = $(data).find("title").text();
-        var txtHtml = "<div class='title'>"+questionnaire_header+"</div>";
-        $(".questionnaire_header1").html(txtHtml); // 把返回的数据添加到页面上
-    },'XML');*/
-  $(document).on('click','.ques_title',function(){
-    alert(this);
-    var para = location.search.substring(1);
-    var id = para.replace('id=','');
+    $(document).on('click','.ques_title',function(e){
+    var target_id = $(e.target).attr('id'); 
+    var target_name = id_title[target_id];
+    alert(target_id);
+    alert(id_title[target_id]);
+    var id = String(target_name).replace('id=','');
     window.location.href = "questionnaire.html?id="+id;
     return false;
   });
