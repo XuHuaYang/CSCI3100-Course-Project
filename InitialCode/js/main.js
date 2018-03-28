@@ -135,8 +135,6 @@ jQuery(document).ready(function( $ ) {
     $(document).on('click','.ques_title',function(e){
     var target_id = $(e.target).attr('id'); 
     var target_name = id_title[target_id];
-    alert(target_id);
-    alert(id_title[target_id]);
     var id = String(target_name).replace('id=','');
     window.location.href = "questionnaire.html?id="+id;
     return false;
