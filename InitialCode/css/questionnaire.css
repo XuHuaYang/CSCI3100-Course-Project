@@ -1,7 +1,15 @@
 #sample_name{
-	font-size: 30px;
+	font-size: 35px;
 }
 
 #description{
-	font-size: 20px;
+	font-size: 22px;
+}
+
+#line_small{
+	line-height: 80%;
+}
+
+#line_big{
+	line-height: 150%;
 }
