@@ -160,13 +160,20 @@ jQuery(document).ready(function( $ ) {
     }, function (data, textStatus){
         $(".questionnaire_header1").html(data);
     });*/
-    $.get("main.php", {//XML type
+    /*$.get("main.php", {//XML type
          questionnaire_header:  $("1").val()
     }, function (data, textStatus){
         var questionnaire_header = $(data).find("title").text();
         var txtHtml = "<div class='title'>"+questionnaire_header+"</div>";
         $(".questionnaire_header1").html(txtHtml); // 把返回的数据添加到页面上
-    },'XML');
+    },'XML');*/
+  $(document).on('click','.ques_title',function(){
+    alert(this);
+    var para = location.search.substring(1);
+    var id = para.replace('id=','');
+    window.location.href = "questionnaire.html?id="+id;
+    return false;
+  });
 
   // Porfolio isotope and filter
   var portfolioIsotope = $('.portfolio-container').isotope({
