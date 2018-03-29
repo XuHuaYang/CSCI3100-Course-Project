@@ -15,6 +15,29 @@ questionnaire_content
 </title>
   <script src="lib/jquery/jquery.min.js"></script>
 <script type="text/javascript">
+    function form(){
+      if (confirm("Are you sure to buy the result of this questionnaire?")) {
+        var data = '{"id":}';
+        var obj = JSON.parse(data);
+        obj.id = sessionStorage.getItem("id");
+        $.ajax({
+          type:'post',
+          url:"user_info.php",
+          data:obj,
+          dataType:"json",
+          async:false,
+          success:function(msg){
+            if(msg.result==1)
+              alert("You have bought it! Check out in your account history!");
+            else
+              alert("You don't have enough points..Try to obtain by answering questionnaires..");
+          },
+          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+          }
+    }
     function loadQustions(){
       var data = '{"nid":-1}';
       var obj = JSON.parse(data);
@@ -32,12 +55,14 @@ questionnaire_content
             $("#questionnaireName").html(msg.ntitle);         
             for(var i=0; i<n; i++)
             {
-                var titleContent = $("<div class=\"form\">Q"+(i+1)+" "+msg.title[i]+"</div>");
+                var titleContent = $("<div id=\"description\"class=\"big\">Q"+(i+1)+". "+msg.title[i]+"</div>");
                 titleContent.appendTo($("#buyer"));
-
-                var optionContent = $("<div class=\"matrix\"><div id=\'qwe\' class=\'matrix\'> <div class=\'icheckbox_div\'><span style=\'font-size:20px\' > A.  </span> <lable>"+msg.choicea[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > B.  </span> <lable>"+msg.choiceb[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > C.  </span> <lable>"+msg.choicec[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > D.  </span> <lable>"+msg.choiced[i]+"</lable></div> </div></div></div></br>");
+                var optionContent = $("<div class=\"matrix\"><div id=\'qwe\' class=\'matrix\'> <div class=\'icheckbox_div\'><span style=\'font-size:20px\' > A.  </span> <lable>"+msg.choicea[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > B.  </span> <lable>"+msg.choiceb[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > C.  </span> <lable>"+msg.choicec[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > D.  </span> <lable>"+msg.choiced[i]+"</lable></div> </div></div></div>"
+                  +"<div class=\"wjhr mtop\"></div></br>");
                 optionContent.appendTo($("#buyer"));
             }
+            var button = $("<div class=\"form\"><div class=\"text-center\"><button type=\"buy\" onclick=\"firm()\">submit</button></div></div>");
+            button.appendTo($("#buyer"));
           },
           error:function(XMLHttpRequest, textStatus, errorThrown){ 
             //alert(XMLHttpRequest.status);
@@ -77,6 +102,12 @@ questionnaire_content
 <style> 
 .divcss5-cent{margin:0 auto;width:250px;height:50px;border:1px solid #F00} 
 </style> 
+
+<style type="text/css">
+    div.small {line-height: 90%}
+    div.big {line-height: 200%;
+              text-indent:2em;}
+</style>
 
 </head>
 <body onload="loadQustions();">
