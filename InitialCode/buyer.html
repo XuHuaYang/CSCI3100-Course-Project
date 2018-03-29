@@ -5,16 +5,35 @@
   <meta charset="utf-8">
   <title>Buyer page</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.simplePagination.js"></script>
+  <link type="text/css" rel="stylesheet" href="css/simplePagination.css"/>
+
 <script type="text/javascript">
- $(function() {
-    /* For zebra striping */
-        $("table tr:nth-child(odd)").addClass("odd-row");
-    /* For cell text alignment */
-    $("table td:first-child, table th:first-child").addClass("first");
-    /* For removing the last border */
-    $("table td:last-child, table th:last-child").addClass("last");
+$(function(){
+
+    $("#paging3").pagination({
+
+        items: 100,
+
+        itemsOnPage: 10,
+
+        cssStyle: 'dark-theme'
+
+    });
+
 });
+
 </script>
+<style>
+.center {
+   text-align: center;
+}
+  <style type="text/css">
+  a{text-decoration:none}
+  .page{margin:0 auto;width:500px}
+  </style>
+</style>
 <style type="text/css">
   html, body, div, span, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -163,10 +182,10 @@ td {text-align:center;  white-space: nowrap;}
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="main.html">Home</a></li>
-          <li><a href="buyer.html">Purchase</a></li>
+          <li class="menu-active"><a href="buyer.html">Purchase</a></li>
           <li><a href="designform.html">Release</a></li>
-          <li><a href="user.html">Account</a></li>        
-      <li><a href="IntroPage.html">Sign out</a></li>
+          <li><a href="user.html">Account</a></li>
+		  <li><a href="IntroPage.html">Sign out</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -178,51 +197,47 @@ td {text-align:center;  white-space: nowrap;}
    <br/> 
  
    
-    <section id="buyer"> 
-    <div class="container"><div class="form">
-        <form>   
-            <label for="search" class="scrollto">Search for the questionaire</label>
+    
+    </br>
+    </br>
+    </br>
+      
+
+    <div class="center">
+      
+      <div class="container">
+
+        <div style="  font-size: 32px;
+color: #111;text-transform: uppercase;text-align: center;font-weight: 700;position: relative;padding-bottom: 15px;">
+          <h3><b>Check similar surveys before you make your own one!</b></h3>
+        </div>
+</div>
+ <section id="buyer">
+      <div class="form">
+         
+          
             <br/>
+            <form>  
             <input type="text" name="q", style="height: 50px;width:550px;">  
              <button type="submit">Search</button action=""> <!-- action to be accomplish: Display the result of the searching -->
         </form>
       
     
 
-   
-        <div>
-          <table border="1" cellpadding="10">
-            <tr>
-              <th>Date</th>
-              <th>Title</th>
-              <th>Topic</th>
-              <th>Credits</th>
-              <th></th>
-            </tr>
-            <tr>
-              <td>2018-03-07</td>
-              <td>A Simple Psychological Quesionnare1</td>
-              <td>Business</td>
-              <td>100</td>
-              <td><button type="submit">Purchase</button action=""></td>  <!-- action to be accomplish: Display the result of the searching -->
-            </tr>
+   <table border="1" cellpadding="10" id="records">
+        <div id="rec_begin">
+          
 
-            <tr>
-              <td>2017-11-07</td>
-              <td>A Simple Psychological Quesionnare2</td>
-              <td>Social Works</td>
-              <td>80</td>
-              <td><button type="submit">Purchase</button action=""></td> <!-- action to be accomplish: Display the result of the searching -->
-            </tr>
-            <tr>
-              <td>2017-02-22</td>
-              <td>A Simple Psychological Quesionnare3</td>
-              <td>Others</td>
-              <td>100</td>
-              <td><button type="submit">Purchase</button action=""></td> <!-- action to be accomplish: Display the result of the searching -->
-          </table>
-        </div> 
+         
         </div>
-</section> 
+         </table>
+        </div>
+        </section> 
+       </div>
+
+</br>
+</br>
+</br>
+<div id="paging3" class="page"></div>
 </body>
 </html>
