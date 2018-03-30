@@ -60,9 +60,9 @@ questionnaire_content
             $("#questionnaireName").html(msg.ntitle);         
             for(var i=0; i<n; i++)
             {
-                var titleContent = $("<div class=\"form\">Q"+(i+1)+". "+msg.title[i]+"</div>");
+                var titleContent = $("<div id=\"description\"class=\"big\">Q"+(i+1)+". "+msg.title[i]+"</div>");
                 titleContent.appendTo($("#buyer"));
-                var optionContent = $("<div class=\"matrix\"><div id=\'qwe\' class=\'matrix\'> <div class=\'icheckbox_div\'><span style=\'font-size:20px\' > A.  </span> <lable>"+msg.choicea[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > B.  </span> <lable>"+msg.choiceb[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > C.  </span> <lable>"+msg.choicec[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > D.  </span> <lable>"+msg.choiced[i]+"</lable></div> </div></div></div></br>");
+                var optionContent = $("<div class=\"matrix\" style=\"text-indent:4em;\"><div id=\'qwe\' class=\'matrix\'> <div class=\'icheckbox_div\'><span style=\'font-size:20px\' > A.  </span> <lable>"+msg.choicea[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > B.  </span> <lable>"+msg.choiceb[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > C.  </span> <lable>"+msg.choicec[i]+"</lable></div><div class=\'icheckbox_div\'><span style=\'font-size:20px\' > D.  </span> <lable>"+msg.choiced[i]+"</lable></div> </div></div></div>"+"<div class=\"wjhr mtop\"></div></br></br>");
                 optionContent.appendTo($("#buyer"));
             }
             var button = $("<div class=\"form\"><div class=\"text-center\"><button type=\"buy\" onclick=\"firm()\">buy</button></div></div>");
@@ -82,6 +82,11 @@ questionnaire_content
 <link href="css/questionnaire.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/wjlibrary01.css" rel="stylesheet">
+<style type="text/css">
+    div.small {line-height: 90%}
+    div.big {line-height: 200%;
+              text-indent:2em;}
+</style>
   <style type="text/css">.user-setting-warp .padding-dom{width:789px;height:39px;border-bottom:1px solid #e5e9ef;margin-bottom:40px}</style>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
