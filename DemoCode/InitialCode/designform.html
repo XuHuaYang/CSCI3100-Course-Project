@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Design Page</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+ <script src="lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript">
+    window.currentIndex = 1;
+  function addQues(){
+    window.currentIndex = window.currentIndex+1;
+    var newtitle = $("<div class=\"form\" id=\"title"+window.currentIndex+"\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><h5 class=\"questionbold\">Question "+window.currentIndex+":</h5></div><div class=\"form-group col-md-3\"><input class=\"inputbox\" name=\"question[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\"  id=\"t"+window.currentIndex+"\"></div></div></div>");
+    newtitle.appendTo($("#container"));
+    var newquestions = $("<div class=\"form\" id=\""+window.currentIndex+".a\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><p>Choice A:</p></div><div class=\"form-group col-md-6\"><input class=\"inputbox\" name=\"choiceA[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\" id=\"a"+window.currentIndex+"\"></div></div></div><div class=\"form\" id=\""+window.currentIndex+".b\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><p>Choice B:</p></div><div class=\"form-group col-md-6\"><input class=\"inputbox\" name=\"choiceB[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\" id=\"b"+window.currentIndex+"\"></div></div></div><div class=\"form\" id=\""+window.currentIndex+".c\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><p>Choice C:</p></div><div class=\"form-group col-md-6\"><input class=\"inputbox\" name=\"choiceC[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\" id=\"c"+window.currentIndex+"\"></div></div></div><div class=\"form\" id=\""+window.currentIndex+".d\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><p>Choice D:</p></div><div class=\"form-group col-md-6\"><input class=\"inputbox\" name=\"choiceD[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\" id=\"d"+window.currentIndex+"\"></div></div></div>");
+    newquestions.appendTo($("#container"));
+  }
+  function deleteQues(){
+    if(window.currentIndex==1)
+      alert("You have no more to delete");
+    else{     
+      var t = document.getElementById("title"+window.currentIndex);
+      var a = document.getElementById(window.currentIndex+".a");
+      var b = document.getElementById(window.currentIndex+".b");
+      var c = document.getElementById(window.currentIndex+".c");
+      var d = document.getElementById(window.currentIndex+".d");
+      var div = document.getElementById("container");
+      div.removeChild(t);
+      div.removeChild(a);
+      div.removeChild(b);
+      div.removeChild(c);
+      div.removeChild(d);
+      window.currentIndex = window.currentIndex-1;
+    }
+  }
+  function submitQues(){
+    var data = '{"ntitle":-1, "email":-1, "type":-1, "numberofquestion":-1, "qtitle":-1, "choicea":-1, "choiceb":-1, "choicec":-1, "choiced":-1}';   
+    var obj = JSON.parse(data);       
+    obj.email = sessionStorage.getItem("id");
+    obj.ntitle = document.getElementById("questiontitle").value;
+    obj.numberofquestion = window.currentIndex;
+    if(document.getElementById("student&scholar").checked)
+      obj.type = 1;
+    else if(document.getElementById("Business").checked)
+      obj.type = 2;
+    else if(document.getElementById("Science&technology").checked)
+      obj.type = 3;
+    else if(document.getElementById("Arts&Literature").checked)
+      obj.type = 4;
+    else if(document.getElementById("SocialWork").checked)
+      obj.type = 5;
+    else if(document.getElementById("others").checked)
+      obj.type = 6;
+    var qtitle = new Array();
+    var choicea = new Array();
+    var choiceb = new Array();
+    var choicec = new Array();
+    var choiced = new Array();
+    for(var i=1; i<obj.numberofquestion+1; i++)
+    {
+      qtitle.push(document.getElementById("t"+i).value);
+      choicea.push(document.getElementById("a"+i).value);
+      choiceb.push(document.getElementById("b"+i).value);
+      choicec.push(document.getElementById("c"+i).value);
+      choiced.push(document.getElementById("d"+i).value);
+    }
+    obj.qtitle = qtitle;
+    obj.choicea = choicea;
+    obj.choiceb = choiceb;
+    obj.choicec = choicec;
+    obj.choiced = choiced;
+    $.ajax({
+          type:'post',
+          url:"designform.php",
+          data:obj,
+          dataType:"json",
+          async:false,
+          success:function(msg){
+            if(msg.result==1){
+              alert("You have released a questionnaire! Check it out in your account history!");
+              window.location.href = "releaseHistory.html";
+            }
+            else
+              alert("You don't have enough points..Try to obtain by answering questionnaires..");
+          },
+          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+          }
+        })
+  }
+  </script>
+
+  
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/designform.css" rel="stylesheet">
+
+  
+</head>
+
+<body>
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">Dr Stat's</a></h1>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="main.html">Home</a></li>
+          <li><a href="buyer.html">Purchase</a></li>
+          <li class="menu-active"><a href="designform.html">Release</a></li>
+          <li><a href="user.html">Account</a></li>
+		  <li><a href="IntroPage.html">Sign out</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+    <!--==========================
+      Redister form
+    ============================-->
+    <section id="register" class="section-bg wow fadeInUp">
+      <div class="container" id="container">
+        <div class="section-header">
+          <p></p>
+          <h3>Get start to design your form</h3>
+        </div>
+
+        <p id="form-button">
+    <add>
+      <button id="addBox" type="button" onclick="addQues();">Add question</button>
+      <button id="deleteBox" type="button" onclick="deleteQues();">Delete question</button>
+    </add>
+    </p>
+
+          <div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Set your form title:</p>
+              </div>
+              <div class="form-group col-md-3">
+                <input id="questiontitle" class="inputbox" placeholder="Title of the form" name="formtitle"
+                data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              </div>   
+              </div>
+            </div>
+            <br>
+            <form action="">
+ 
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Your Occupation Area:</p>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="radio" id="student&scholar" name="category[]" value="1"
+                   class="radio">
+                   <label for="subscribeNews">Students & Scholars</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="radio" id="Business" name="category[]" value="2" class="radio">
+                   <label for="subscribeNews">Business</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="radio" id="Science&technology" name="category[]" value="3" class="radio">
+                   <label for="subscribeNews">Science & Tech</label>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="radio" id="Arts&Literature" name="category[]" value="4"
+                   class="radio">
+                   <label for="subscribeNews">Arts & Literature</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="radio" id="SocialWork" name="category[]" value="5" class="radio">
+                   <label for="subscribeNews">Social works</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="radio" id="others" name="category[]" value="6" class="radio">
+                   <label for="subscribeNews">Others</label>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+            </form>
+          <br>
+           <div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <h5 class="questionbold">Question 1:</h5>
+              </div>
+              <div class="form-group col-md-3">
+                <input class="inputbox" name="question[]" data-rule="minlen:1" data-msg="Please enter at least 1 chars" id="t1">
+              </div>
+           </div>
+            </div>
+          <div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Choice A:</p>
+              </div>
+              <div class="form-group col-md-6">
+                <input class="inputbox" name="choiceA[]" id="a1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              </div>
+            </div>
+          </div>
+
+          <div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Choice B:</p>
+              </div>
+              <div class="form-group col-md-6">
+                <input class="inputbox" name="choiceB[]" id="b1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              </div>
+            </div>
+          </div>
+         <div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Choice C:</p>
+              </div>
+              <div class="form-group col-md-6">
+                <input class="inputbox" name="choiceC[]" id="c1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              </div>
+            </div>
+          </div>
+        <div class="form">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Choice D:</p>
+              </div>
+              <div class="form-group col-md-6">
+                <input class="inputbox" name="choiceD[]" id="d1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              </div>
+            </div>
+        </div>
+
+        
+        
+      </div>
+      <div class="container">
+        <div class="text-center"><input type="submit" id="submitbutton" value="submit" onclick="submitQues();"></div>
+      </div>
+    </section>
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Dr Stat's</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+        -->
+        Best <a href="">Bootstrap Templates</a> by BootstrapMade
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+
+</body>
+</html>

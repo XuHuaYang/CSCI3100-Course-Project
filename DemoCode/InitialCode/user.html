@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/LI%20Siyao/Desktop/htmls/user.html -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <title>UserPage</title>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript">
+    function getUserInfo(){
+      var data = '{"id":-1,"ntype":0}';
+      var obj = JSON.parse(data);
+      obj.id = sessionStorage.getItem('id');
+      
+      $.ajax({
+          type:'post',
+          url:"user_info.php",
+          data:obj,
+          dataType:"json",
+          async:false,
+          success:function(data){  
+            $("#userID").html(obj.id);
+            $("#userPoint").html(data.userPoint);
+          }, 
+          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+          }
+      })
+    }
+  </script>
+  <style>
+    #nav {
+    line-height:20px;
+    background-color:gray;
+    height:558px;
+    width:150px;
+    float:left;
+    padding:5px;  
+    position: relative;
+    top: 72px;      
+    }
+    #section {
+    line-height: 10px;
+    width:350px;
+    float:left;
+    padding:10px; 
+    position: relative;
+    top: 70px;   
+    }
+    td {text-align:center;  white-space: nowrap;}
+    table {text-align: center;}
+  </style>
+  <style type="text/css">.user-setting-warp .padding-dom{width:789px;height:39px;border-bottom:1px solid #e5e9ef;margin-bottom:40px}</style>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<!-- <body style="background-image:url('img/black.png')"> -->
+
+
+<body onload="getUserInfo();">
+	<header id="header" style="background-color:black">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">Dr Stat's</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="main.html">Home</a></li>
+          <li><a href="buyer.html">Purchase</a></li>
+          <li><a href="designform.html">Release</a></li>
+          <li class="menu-active"><a href="user.html">Account</a></li>
+          <li><a href="IntroPage.html">Sign out</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- #header -->
+
+    <div id="nav">
+      <br><br><br>
+      <p><a href="user.html">User Account</a></p><br>
+      <p><a href="releaseHistory.html"><font color="white">Release History</font></a></p><br>
+      <p><a href="purchaseHistory.html"><font color="white">Purchase History</font></a></p><br>        
+    </div>
+
+    
+    <div id="section">   
+      <div class="user-setting-warp">
+        <div class="padding-dom"></div>
+        <div>
+          <p>UserID/Email Address:
+            <label id="userID"></label><br>
+          </p>
+        </div>
+        <div>
+          <p>Rewards Point: 
+            <label id="userPoint"></label><br>
+          </p>
+        </div>
+      </div>
+    </div>    
+</body>
+
+</html>

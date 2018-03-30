@@ -1,0 +1,197 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="no-transform " />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<title>
+
+questionnaire_content
+
+</title>
+<link href="css/questionnaire.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/wjlibrary01.css" rel="stylesheet">
+  <style type="text/css">.user-setting-warp .padding-dom{width:789px;height:39px;border-bottom:1px solid #e5e9ef;margin-bottom:40px}</style>
+  <style type="text/css">
+    div.small {line-height: 90%}
+    div.big {line-height: 200%}
+</style>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script language="JavaScript">
+  function drawChart() { 
+   var chart = {
+       plotBackgroundColor: null,
+       plotBorderWidth: null,
+       plotShadow: false
+   };
+   var title = {
+      text: ''   
+   };      
+   var tooltip = {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+   };
+   var plotOptions = {
+      pie: {
+         allowPointSelect: true,
+         cursor: 'pointer',
+         dataLabels: {
+            enabled: false           
+         },
+         showInLegend: true
+      }
+   };
+   var anum = Number(arguments[1]);
+   var bnum = Number(arguments[2]);
+   var cnum = Number(arguments[3]);
+   var dnum = Number(arguments[4]);
+   var series= [{
+      type: 'pie',
+      name: 'Percentage',
+      data: [
+         ['A: '+anum, anum],
+         ['B: '+bnum, bnum],
+         ['C: '+cnum, cnum],
+         ['D: '+dnum, dnum],
+      ]
+   }];     
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;     
+   json.tooltip = tooltip;  
+   json.series = series;
+   json.plotOptions = plotOptions;
+   var label ="#container"+arguments[0];
+  
+   $(label).highcharts(json);  
+  
+}
+</script>
+<script type="text/javascript">    
+        function firm() {
+        if (confirm("Are you sure to purchase this questionnaire?")) {
+            alert("You have purchase it successfully!");
+        }
+        else {
+            alert("You cancel this payment");
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    function loadResults(){
+      var data = '{"nid":-1}';
+      var obj = JSON.parse(data);
+      var para = location.search.substring(1);
+      var nid = para.replace('nid=','');
+      obj.nid = nid;
+      $.ajax({
+          type:'post',
+          url:"fetchresult.php",
+          data:obj,
+          dataType:"json",
+          async:false,
+          success:function(msg){       
+            var n = msg.questionnumber; 
+            $("#questionnaireName").html(msg.ntitle);         
+            for(var i=0; i<n; i++)
+            {
+                var content = $("<div id=\"description\" class=\"big\">Q"+(i+1)+". "+msg.qtitle[i]+"</div><div class=\"matrix\"><div><span style=\'font-size:20px\'> A </span><lable>"+msg.choicea[i]+"</lable></div><div><span style=\'font-size:20px\' > B </span> <lable>"+msg.choiceb[i]+"</lable></div><div><span style=\'font-size:20px\' > C </span> <lable>"+msg.choicec[i]+"</lable></div><div><span style=\'font-size:20px\' > D </span> <lable>"+msg.choiced[i]+"</lable></div><div id=\"container"+i+"\" style=\"width: 500px; height: 350px; margin: 0 auto\"></div></div><div class=\"wjhr mtop\"></div>");
+                content.appendTo($("#buyer"));
+            }
+            for(var i=0; i<n; i++)
+            {
+            	drawChart(i,msg.anum[i],msg.bnum[i],msg.cnum[i],msg.dnum[i]);
+              
+            }
+          },
+          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+          }
+      })    
+    }
+  </script>
+</head>
+<body onload="loadResults();">
+
+      <div id="header" class="header-scrolled";>
+      <div id="logo" class="pull-left">
+        <h1><a href="homepage.html" >Mr.Stat's</a></h1>
+      </div>
+      <br/>
+        <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="main.html">Home</a></li>
+          <li><a href="buyer.html">Purchase</a></li>
+          <li><a href="designform.html">Release</a></li>
+          <li class="menu-active"><a href="user.html">Account</a></li>
+          <li><a href="IntroPage.html">Sign out</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+  </div>
+   <br/>
+   <br/>
+ 
+
+<div class="wjContent">
+<div class="content ptop Tj">
+<div class="templates">
+<div class="proheaddiv">
+
+<div class="reldiv">
+<h1 class="alignc h3" id="questionnaireName"></h1>
+<div nowrap>
+<br>
+
+</div>
+<div class="wjhr mtop"></div>
+<div class="ques mtop"></div>
+
+<div class="wjques">
+
+<section id="buyer">
+	
+</section>
+<br>
+</div>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
