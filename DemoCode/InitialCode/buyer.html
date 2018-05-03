@@ -237,7 +237,7 @@ td {text-align:center;  white-space: nowrap;}
     <div class="center">
       
       <div class="container">
-
+	<!-- reminder -->
         <div style="  font-size: 32px;
 color: #111;text-transform: uppercase;text-align: center;font-weight: 700;position: relative;padding-bottom: 15px;">
           <h3><b>Check similar surveys before you make your own one!</b></h3>
@@ -250,11 +250,12 @@ color: #111;text-transform: uppercase;text-align: center;font-weight: 700;positi
             <br/>
             <form>  
             <input id="goal" type="text" style="height: 50px;width:550px;" />  
-            <button type="submit" onclick="return search1();" href="">Search</button> 
+	
+            <button type="submit" onclick="return search1();" href="">Search</button> <!-- search1 is used to do searching-->
         </form>
       
     
-
+<!-- the table containing the search results -->
    <table border="1" cellpadding="10" id="records">
          </table>
         </div>
@@ -264,6 +265,7 @@ color: #111;text-transform: uppercase;text-align: center;font-weight: 700;positi
 </br>
 </br>
 </br>
+<!-- paging division -->
 <div id="paging3" class="page"></div>
 </body>
 </html>
