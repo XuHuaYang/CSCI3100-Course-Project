@@ -27,6 +27,10 @@
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
   <script type="text/javascript">
+    //function invoked by Submit button
+    //package input into JSON (input fetched by Ids)
+    //transmit JSON data to sub_form.php using Ajax
+    //input will be checked before transmission(e.g. different passwrods will be alerted)
     function saveJson1(){
       var data = '{"FirstName":"", "LastName":"", "Email":"", "CreditCard":"", "Pincode":"", "Password":"", "area1":false, "area2":false, "area3":false, "area4":false, "area5":false, "area6":false}';
       var obj = JSON.parse(data);
@@ -120,11 +124,8 @@
   <section id="intro">
     <div class="intro-container">
       <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
-
         <ol class="carousel-indicators"></ol>
-
         <div class="carousel-inner" role="listbox">
-
           <div class="carousel-item active" style="background-image: url('img/intro-carousel/3.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
@@ -134,35 +135,22 @@
               </div>
             </div>
           </div>     
-
-
         </div>
-
-        
-
       </div>
     </div>
   </section><!-- #intro -->
 
   <main id="main">
-
-
-  
-
     <!--==========================
       Redister form
     ============================-->
     <section id="register" class="section-bg wow fadeInUp">
       <div class="container">
-
         <div class="section-header">
           <p></p>
           <h3>Fill the form is all you need</h3>
           <p>Please make sure all your personal information and card number is correct and indentical with you real ID！</p>
         </div>
-
-        
-
         <div class="form">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
@@ -171,10 +159,12 @@
               <div class="form-group col-md-3">
                 <p>Personal Info:</p>
               </div>
+              <!-- input for first name -->
               <div class="form-group col-md-3">
                 <input type="text" name="First name" class="form-control" id="first_name" placeholder="First Name" data-rule="minlen:1" data-msg="Please enter at least 1 chars" />
                 <div class="validation"></div>
               </div>
+              <!-- input for last name -->
               <div class="form-group col-md-3">
                 <input type="text" name="Last name" class="form-control" id="last_name" placeholder="Last Name" data-rule="minlen:1" data-msg="Please enter at least 1 chars" />
                 <div class="validation"></div>
@@ -184,54 +174,37 @@
               </div>
             </div>
 
-
+            <!-- input for email(used as user name) -->
             <div class="form-row">
-              <div class="form-group col-md-3">
-                
-              </div>
+              <div class="form-group col-md-3"></div>
               <div class="form-group col-md-6">
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your Email (As username)" data-rule="email" data-msg="Please enter a valid email" />
                   <div class="validation"></div>
               </div>
-
-              
-              <div class="form-group col-md-3">
-                
-              </div>
+              <div class="form-group col-md-3"></div>
             </div>
 
+            <!-- input for credit card number -->
             <div class="form-row">
-              <div class="form-group col-md-3">
-                  
-              </div>
+              <div class="form-group col-md-3"></div>
               <div class="form-group col-md-6">
                   <input type="creditCard" class="form-control" name="creditCard" id="creditCard" placeholder="Credit Card Num (Holder must be coincident with your name)" data-rule="minlen:13" data-msg="Please enter a valid creditcard" />
                   <div class="validation"></div>
               </div>
-
-              
-              <div class="form-group col-md-3">
-                
-              </div>
+              <div class="form-group col-md-3"></div>
             </div>
 
+            <!-- input for pincode -->
             <div class="form-row">
-              <div class="form-group col-md-3">
-                  
-              </div>
+              <div class="form-group col-md-3"></div>
               <div class="form-group col-md-2">
                   <input type="pincode" class="form-control" name="pincode" id="pincode" placeholder="pin (last 3 digits)" data-rule="minlen:3"  data-msg="Please enter a valid pin code" />
                   <div class="validation"></div>
               </div>
-
-              
-              <div class="form-group col-md-7">
-                
-              </div>
+              <div class="form-group col-md-7"></div>
             </div>
 
-            
-
+            <!-- input for occupation area (choose among 6 areas) -->
             <div class="form-row">
               <div class="form-group col-md-3">
                 <p>Your Occupation Area:</p>
@@ -254,10 +227,8 @@
               </div>
             </div>
 
-
             <div class="form-row">
-              <div class="form-group col-md-3">
-                
+              <div class="form-group col-md-3">                
               </div>
               <div class="form-group col-md-2">
                    <input type="checkbox" id="Arts&Literature" name="Arts&Literature" value="Arts&Literature">
@@ -277,7 +248,7 @@
               </div>
             </div>
 
-            
+            <!-- input for password -->
             <div class="form-row">
               <div class="form-group col-md-3">
                 <p>Set Password:</p>
@@ -292,6 +263,7 @@
               </div>
             </div>
 
+            <!-- input for password again(for confirmation) -->
             <div class="form-row">
               <div class="form-group col-md-3">
                 <p>Confirm Password:</p>
@@ -306,18 +278,12 @@
               </div>
             </div>
 
-
-            
-            
-            
-              <div class="text-center"><button type="submit" onclick="saveJson1();" >Submit</button></div>  
+            <div class="text-center"><button type="submit" onclick="saveJson1();" >Submit</button></div>  
         </form>
-        </div>
-
       </div>
-    </section><!-- #register form -->
-
-  </main>
+    </div>
+  </section><!-- #register form -->
+</main>
 
   <!--==========================
     Footer

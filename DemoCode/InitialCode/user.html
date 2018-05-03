@@ -6,11 +6,14 @@
   <title>UserPage</title>
   <script src="lib/jquery/jquery.min.js"></script>
   <script type="text/javascript">
+    //function invoked onload to fetch user information
+    //get userID from sessionStorage
+    //transmit to user_info.php by Ajax
+    //acquired information is added to specified IDs
     function getUserInfo(){
       var data = '{"id":-1,"ntype":0}';
       var obj = JSON.parse(data);
-      obj.id = sessionStorage.getItem('id');
-      
+      obj.id = sessionStorage.getItem('id');   
       $.ajax({
           type:'post',
           url:"user_info.php",
@@ -100,19 +103,18 @@
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
-</header><!-- #header -->
+  </header><!-- #header -->
 
-    <div id="nav">
-      <br><br><br>
-      <p><a href="user.html">User Account</a></p><br>
-      <p><a href="releaseHistory.html"><font color="white">Release History</font></a></p><br>
-      <p><a href="purchaseHistory.html"><font color="white">Purchase History</font></a></p><br>        
-    </div>
+  <div id="nav">
+    <br><br><br>
+    <p><a href="user.html">User Account</a></p><br>
+    <p><a href="releaseHistory.html"><font color="white">Release History</font></a></p><br>
+    <p><a href="purchaseHistory.html"><font color="white">Purchase History</font></a></p><br>        
+  </div>
 
-    
-    <div id="section">   
-      <div class="user-setting-warp">
-        <div class="padding-dom"></div>
+  <div id="section">   
+    <div class="user-setting-warp">
+      <div class="padding-dom"></div>
         <div>
           <p>UserID/Email Address:
             <label id="userID"></label><br>
@@ -125,6 +127,5 @@
         </div>
       </div>
     </div>    
-</body>
-
+  </body>
 </html>
