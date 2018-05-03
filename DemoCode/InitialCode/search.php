@@ -1,4 +1,17 @@
 <?php
+/*********************************************************************
+ * MODULE NAME:search
+ *
+ * PROCEDURE INVOCATION:
+ *     CALL search(title)
+ *
+ * INPUT PARAMETERS:
+ *     title is part of the questionnaire title
+ *
+ * OUTPUT PARAMETERS:
+ *     Search for the questionnaires matching part of the input title
+ *     Return found questionnaires with the nid,title and its type
+**********************************************************************/
 $dbservername = "localhost";
     $dbusername = "root";
     $dbpassword = "zwq19961228";
