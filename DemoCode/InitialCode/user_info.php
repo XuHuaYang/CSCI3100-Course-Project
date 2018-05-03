@@ -1,5 +1,19 @@
 <?php
-
+/*********************************************************************
+ * MODULE NAME:user_info
+ *
+ * PROCEDURE INVOCATION:
+ *     CALL user_info(email)
+ *
+ * INPUT PARAMETERS:
+ *     email is used to identify the user
+ *
+ * OUTPUT PARAMETERS:
+ *     Search the database for user with the given email
+ *     If find the user successfully,then pack the detailed information of the user
+ *        Including the credit,the released history of the users, the bought history of the user.
+ *     Return the user infomation with the questionnaire id about this user
+**********************************************************************/
     $dbservername = "localhost";
     $dbusername = "root";
     $dbpassword = "zwq19961228";
