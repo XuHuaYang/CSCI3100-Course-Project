@@ -9,7 +9,11 @@
 
  <script src="lib/jquery/jquery.min.js"></script>
   <script type="text/javascript">
+  	//remember the current number of quesitons
     window.currentIndex = 1;
+    //function invoked by Add Question button
+    //add html codes into #container area
+    //each added <div> is specified by currentIndex
   function addQues(){
     window.currentIndex = window.currentIndex+1;
     var newtitle = $("<div class=\"form\" id=\"title"+window.currentIndex+"\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><h5 class=\"questionbold\">Question "+window.currentIndex+":</h5></div><div class=\"form-group col-md-3\"><input class=\"inputbox\" name=\"question[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\"  id=\"t"+window.currentIndex+"\"></div></div></div>");
@@ -17,6 +21,8 @@
     var newquestions = $("<div class=\"form\" id=\""+window.currentIndex+".a\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><p>Choice A:</p></div><div class=\"form-group col-md-6\"><input class=\"inputbox\" name=\"choiceA[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\" id=\"a"+window.currentIndex+"\"></div></div></div><div class=\"form\" id=\""+window.currentIndex+".b\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><p>Choice B:</p></div><div class=\"form-group col-md-6\"><input class=\"inputbox\" name=\"choiceB[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\" id=\"b"+window.currentIndex+"\"></div></div></div><div class=\"form\" id=\""+window.currentIndex+".c\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><p>Choice C:</p></div><div class=\"form-group col-md-6\"><input class=\"inputbox\" name=\"choiceC[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\" id=\"c"+window.currentIndex+"\"></div></div></div><div class=\"form\" id=\""+window.currentIndex+".d\"><div class=\"form-row\"><div class=\"form-group col-md-3\"><p>Choice D:</p></div><div class=\"form-group col-md-6\"><input class=\"inputbox\" name=\"choiceD[]\" data-rule=\"minlen:1\" data-msg=\"Please enter at least 1 chars\" id=\"d"+window.currentIndex+"\"></div></div></div>");
     newquestions.appendTo($("#container"));
   }
+  //function invoked by Delete Question button
+  //delete the <div>s with currentIndex
   function deleteQues(){
     if(window.currentIndex==1)
       alert("You have no more to delete");
@@ -35,6 +41,8 @@
       window.currentIndex = window.currentIndex-1;
     }
   }
+  //function invoked by Submit Button
+  //package input into a JSON and use Ajax to transmit with designform.php
   function submitQues(){
     var data = '{"ntitle":-1, "email":-1, "type":-1, "numberofquestion":-1, "qtitle":-1, "choicea":-1, "choiceb":-1, "choicec":-1, "choiced":-1}';   
     var obj = JSON.parse(data);       
@@ -148,148 +156,143 @@
     <!--==========================
       Redister form
     ============================-->
-    <section id="register" class="section-bg wow fadeInUp">
-      <div class="container" id="container">
-        <div class="section-header">
-          <p></p>
-          <h3>Get start to design your form</h3>
-        </div>
+  <section id="register" class="section-bg wow fadeInUp">
+    <div class="container" id="container">
+      <!-- default display area START -->
+      <div class="section-header">
+        <p></p>
+        <h3>Get start to design your form</h3>
+      </div>
+      <!-- default display area END -->
 
-        <p id="form-button">
-    <add>
-      <button id="addBox" type="button" onclick="addQues();">Add question</button>
-      <button id="deleteBox" type="button" onclick="deleteQues();">Delete question</button>
-    </add>
-    </p>
+      <p id="form-button">
+        <add>
+          <button id="addBox" type="button" onclick="addQues();">Add question</button>
+          <button id="deleteBox" type="button" onclick="deleteQues();">Delete question</button>
+        </add>
+      </p>
 
-          <div class="form">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Set your form title:</p>
-              </div>
-              <div class="form-group col-md-3">
-                <input id="questiontitle" class="inputbox" placeholder="Title of the form" name="formtitle"
+      <!-- input area for title START -->
+      <div class="form">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <p>Set your form title:</p>
+          </div>
+          <div class="form-group col-md-3">
+            <input id="questiontitle" class="inputbox" placeholder="Title of the form" name="formtitle"
                 data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              </div>   
-              </div>
-            </div>
-            <br>
-            <form action="">
- 
-
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Your Occupation Area:</p>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="radio" id="student&scholar" name="category[]" value="1"
-                   class="radio">
-                   <label for="subscribeNews">Students & Scholars</label>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="radio" id="Business" name="category[]" value="2" class="radio">
-                   <label for="subscribeNews">Business</label>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="radio" id="Science&technology" name="category[]" value="3" class="radio">
-                   <label for="subscribeNews">Science & Tech</label>
-              </div>
-              
-              <div class="form-group col-md-3">
-                
-              </div>
-            </div>
-
-
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="radio" id="Arts&Literature" name="category[]" value="4"
-                   class="radio">
-                   <label for="subscribeNews">Arts & Literature</label>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="radio" id="SocialWork" name="category[]" value="5" class="radio">
-                   <label for="subscribeNews">Social works</label>
-              </div>
-              <div class="form-group col-md-2">
-                   <input type="radio" id="others" name="category[]" value="6" class="radio">
-                   <label for="subscribeNews">Others</label>
-              </div>
-              
-              <div class="form-group col-md-3">
-                
-              </div>
-            </div>
-            </form>
-          <br>
-           <div class="form">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <h5 class="questionbold">Question 1:</h5>
-              </div>
-              <div class="form-group col-md-3">
-                <input class="inputbox" name="question[]" data-rule="minlen:1" data-msg="Please enter at least 1 chars" id="t1">
-              </div>
-           </div>
-            </div>
-          <div class="form">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Choice A:</p>
-              </div>
-              <div class="form-group col-md-6">
-                <input class="inputbox" name="choiceA[]" id="a1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              </div>
-            </div>
-          </div>
-
-          <div class="form">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Choice B:</p>
-              </div>
-              <div class="form-group col-md-6">
-                <input class="inputbox" name="choiceB[]" id="b1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              </div>
-            </div>
-          </div>
-         <div class="form">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Choice C:</p>
-              </div>
-              <div class="form-group col-md-6">
-                <input class="inputbox" name="choiceC[]" id="c1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              </div>
-            </div>
-          </div>
-        <div class="form">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <p>Choice D:</p>
-              </div>
-              <div class="form-group col-md-6">
-                <input class="inputbox" name="choiceD[]" id="d1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              </div>
-            </div>
+          </div>   
         </div>
+      </div>
+      <!-- input area for title END -->
+      <br>
+      <!-- choice area for questionnaire type START -->
+      <form action="">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <p>Your Occupation Area:</p>
+          </div>
+          <div class="form-group col-md-2">
+            <input type="radio" id="student&scholar" name="category[]" value="1"
+                   class="radio">
+            <label for="subscribeNews">Students & Scholars</label>
+          </div>
+          <div class="form-group col-md-2">
+            <input type="radio" id="Business" name="category[]" value="2" class="radio">
+            <label for="subscribeNews">Business</label>
+          </div>
+          <div class="form-group col-md-2">
+            <input type="radio" id="Science&technology" name="category[]" value="3" class="radio">
+            <label for="subscribeNews">Science & Tech</label>
+          </div>             
+          <div class="form-group col-md-3">               
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3"></div>
+          <div class="form-group col-md-2">
+            <input type="radio" id="Arts&Literature" name="category[]" value="4"
+                   class="radio">
+            <label for="subscribeNews">Arts & Literature</label>
+          </div>
+          <div class="form-group col-md-2">
+            <input type="radio" id="SocialWork" name="category[]" value="5" class="radio">
+            <label for="subscribeNews">Social works</label>
+          </div>
+          <div class="form-group col-md-2">
+            <input type="radio" id="others" name="category[]" value="6" class="radio">
+            <label for="subscribeNews">Others</label>
+          </div>
+          <div class="form-group col-md-3">
+          </div>
+        </div>
+      </form>
+      <!-- choice area for questionnaire type END -->
+      <br>
+      <!-- always display the input area for first question -->
+      <!-- input area for first question START -->
+      <div class="form">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <h5 class="questionbold">Question 1:</h5>
+          </div>
+          <div class="form-group col-md-3">
+            <input class="inputbox" name="question[]" data-rule="minlen:1" data-msg="Please enter at least 1 chars" id="t1">
+          </div>
+        </div>
+      </div>
+      <div class="form">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <p>Choice A:</p>
+          </div>
+          <div class="form-group col-md-6">
+            <input class="inputbox" name="choiceA[]" id="a1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+          </div>
+        </div>
+      </div>
+      <div class="form">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <p>Choice B:</p>
+          </div>
+          <div class="form-group col-md-6">
+            <input class="inputbox" name="choiceB[]" id="b1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+          </div>
+        </div>
+      </div>
+      <div class="form">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <p>Choice C:</p>
+          </div>
+          <div class="form-group col-md-6">
+            <input class="inputbox" name="choiceC[]" id="c1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+          </div>
+        </div>
+      </div>
+      <div class="form">
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <p>Choice D:</p>
+            </div>
+            <div class="form-group col-md-6">
+              <input class="inputbox" name="choiceD[]" id="d1" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+            </div>
+          </div>
+      </div> 
+    </div>
+    <!-- input area for first question END -->
 
-        
-        
-      </div>
-      <div class="container">
-        <div class="text-center"><input type="submit" id="submitbutton" value="submit" onclick="submitQues();"></div>
-      </div>
-    </section>
+    <!-- dynamically added area by submitQues() -->
+    <div class="container">
+      <div class="text-center"><input type="submit" id="submitbutton" value="submit" onclick="submitQues();"></div>
+    </div>
+  </section>
   <!--==========================
     Footer
   ============================-->
   <footer id="footer">
-    
-
     <div class="container">
       <div class="copyright">
         &copy; Copyright <strong>Dr Stat's</strong>. All Rights Reserved
