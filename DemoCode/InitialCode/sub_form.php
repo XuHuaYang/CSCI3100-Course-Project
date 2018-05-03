@@ -1,4 +1,19 @@
 <?php
+/*********************************************************************
+ * MODULE NAME:subform
+ *
+ * PROCEDURE INVOCATION:
+ *     CALL subform(user)
+ *
+ * INPUT PARAMETERS:
+ *     user is the collection of information that user fill in on the sign in page
+ *
+ * OUTPUT PARAMETERS:
+ *     Insert the user to the database
+ *     If succeed in inserting it, set return string to remind success
+ *     If fail in inserting it,set return string to remind failure
+ *     Return the string
+**********************************************************************/
 	header('Access-Control-Allow-Origin:*'); 
 	header('Content-Type: application/json');
     header('Content-Type: text/html;charset=utf-8');
