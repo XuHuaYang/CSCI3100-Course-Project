@@ -166,7 +166,8 @@ td {text-align:center;  white-space: nowrap;}
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-</head>
+</head><!-- header -->
+
 <body>
       <header id="header">
     <div class="container-fluid">
@@ -202,8 +203,8 @@ td {text-align:center;  white-space: nowrap;}
       
     <div class="center">
       
+ <!-- reminder -->
       <div class="container">
-
         <div style="  font-size: 32px;
 color: #111;text-transform: uppercase;text-align: center;font-weight: 700;position: relative;padding-bottom: 15px;">
           <h3><b>Check similar surveys before you make your own one!</b></h3>
@@ -214,14 +215,15 @@ color: #111;text-transform: uppercase;text-align: center;font-weight: 700;positi
          
           
             <br>
+	     <!-- search division -->
             <form> 
             <div class="search_but"> 
             <input id="goal" type="text" style="height: 50px;width:550px;">  
-             <button type="button" onclick="search_word();">Search</button> </div>
+             <button type="button" onclick="search_word();">Search</button> </div><!-- search_word would send the keyword to server -->
         </form>
       
     
-
+	<!-- the table containing the search results -->
    <table border="1" cellpadding="10" id="records">
          </table>
         </div>
