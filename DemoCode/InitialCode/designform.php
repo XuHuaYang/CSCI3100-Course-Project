@@ -3,16 +3,16 @@
  * MODULE NAME:designform
  *
  * PROCEDURE INVOCATION:
- *     CALL designform()
+ *     CALL designform(userID)
  *
  * INPUT PARAMETERS:
  *     userID
  *
  * OUTPUT PARAMETERS:
- *     IF user's credit >= 1500, can release
+ *     IF user's credit >= 1500, can release, marked released
  *        Then fetch the questions to the server, then save it to database
- *     If user's credit < 1500, cannot release
- *     Return the status of the release 
+ *     If user's credit < 1500, cannot release,marked unreleased
+ *     Return the release status  
 **********************************************************************/
 	$dbservername = "localhost";
     $dbusername = "root";
