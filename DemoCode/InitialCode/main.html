@@ -69,115 +69,103 @@
     <section id="featured-services">
 
     <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 box">
-            <br><br>
-            <h4 class="title"><a href="">Search</a></h4>
-            <p class="description">Search for existed questionaires data</p>
-          </div>
-
-          <div class="col-lg-4 box box-bg">
-            <br><br>
-            <h4 class="title"><a href="">Release</a></h4>
-            <p class="description">Release desired questionaires.The paid money will be deliveried to answers.</p>
-          </div>
-
-          <div class="col-lg-4 box">
-            <br><br>
-            <h4 class="title"><a href="">Answer Questionaires</a></h4>
-            <p class="description">Answer questionaire and get paid.</p>
-          </div>
-
+      <div class="row">
+        <div class="col-lg-4 box">
+          <br><br>
+          <h4 class="title"><a href="">Search</a></h4>
+          <p class="description">Search for existed questionaires data</p>
+        </div>
+        <div class="col-lg-4 box box-bg">
+          <br><br>
+          <h4 class="title"><a href="">Release</a></h4>
+          <p class="description">Release desired questionaires.The paid money will be deliveried to answers.</p>
+        </div>
+        <div class="col-lg-4 box">
+          <br><br>
+          <h4 class="title"><a href="">Answer Questionaires</a></h4>
+          <p class="description">Answer questionaire and get paid.</p>
         </div>
       </div>
-    </section><!-- #featured-services -->
-
-
-     <script src="lib/jquery/jquery.min.js"></script>
- <script type="text/javascript">
-      function getQuesTitle(){
-      $.ajax({
-          type:'post',
-          url:"main.php",
-          dataType:"json",
-          async:false,
-          success:function(data){
-            for(var i=1; i<7; i++)
-            {
-              var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-edu\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t1"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t1nid[i-1]+"\">"+data.t1title[i-1]+"</a></strong></p></div></div></div>")
+    </div>
+  </section><!-- #featured-services -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript">
+    //function invoked onload to display lists of questionnaires
+    //use Ajax to ask main.php to transmit information
+    //acquired information is added to #c area with different types(totally 6 types)
+    function getQuesTitle(){
+    $.ajax({
+      type:'post',
+      url:"main.php",
+      dataType:"json",
+      async:false,
+      success:function(data){
+        for(var i=1; i<7; i++)
+        {
+          var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-edu\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t1"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t1nid[i-1]+"\">"+data.t1title[i-1]+"</a></strong></p></div></div></div>")
               content.appendTo($("#c"));
-            }
-            for(var i=1; i<7; i++)
-            {
-              var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-bus\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t2"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t2nid[i-1]+"\">"+data.t2title[i-1]+"</a></strong></p></div></div></div>")
+        }
+        for(var i=1; i<7; i++)
+        {
+          var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-bus\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t2"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t2nid[i-1]+"\">"+data.t2title[i-1]+"</a></strong></p></div></div></div>")
               content.appendTo($("#c"));
-            }
-            for(var i=1; i<7; i++)
-            {
-              var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-sci\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t3"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t3nid[i-1]+"\">"+data.t3title[i-1]+"</a></strong></p></div></div></div>")
+        }
+        for(var i=1; i<7; i++)
+        {
+          var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-sci\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t3"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t3nid[i-1]+"\">"+data.t3title[i-1]+"</a></strong></p></div></div></div>")
               content.appendTo($("#c"));
-            }
-            for(var i=1; i<7; i++)
-            {
-              var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-art\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t4"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t4nid[i-1]+"\">"+data.t4title[i-1]+"</a></strong></p></div></div></div>")
+        }
+        for(var i=1; i<7; i++)
+        {
+          var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-art\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t4"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t4nid[i-1]+"\">"+data.t4title[i-1]+"</a></strong></p></div></div></div>")
               content.appendTo($("#c"));
-            }
-            for(var i=1; i<7; i++)
-            {
-              var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-soc\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t5"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t5nid[i-1]+"\">"+data.t5title[i-1]+"</a></strong></p></div></div></div>")
+        }
+        for(var i=1; i<7; i++)
+        {
+          var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-soc\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t5"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t5nid[i-1]+"\">"+data.t5title[i-1]+"</a></strong></p></div></div></div>")
               content.appendTo($("#c"));
-            }
-            for(var i=1; i<7; i++)
-            {
-              var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-oth\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t6"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t6nid[i-1]+"\">"+data.t6title[i-1]+"</a></strong></p></div></div></div>")
+        }
+        for(var i=1; i<7; i++)
+        {
+          var content = $("<div class=\"col-lg-4 col-md-3 portfolio-item filter-oth\"><div class=\"portfolio-wrap\"><div class=\"portfolio-info\"><p><strong><a id=\"t6"+i+"\" class=\"ques_title\" href=\"fill_in.html?nid="+data.t6nid[i-1]+"\">"+data.t6title[i-1]+"</a></strong></p></div></div></div>")
               content.appendTo($("#c"));
-            }
-          }, 
-          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+        }
+      }, 
+      error:function(XMLHttpRequest, textStatus, errorThrown){ 
             //alert(XMLHttpRequest.status);
             //alert(XMLHttpRequest.readyState);
             alert(textStatus);
-          }
-      })
+      }
+    })
     }
-
   </script>
   
 
   <body onload ="getQuesTitle();">
     <section id="portfolio"  class="section-bg" >
      <div class="container">
-
-        <header class="section-header">
-          <h3 class="section-title">Questionaires</h3>
-        </header>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-                <!--<li data-filter="*" class="filter-active">All</li>-->
-                <li data-filter=".filter-edu">Education</li>
-                <li data-filter=".filter-bus">Bussiness</li>
-                <li data-filter=".filter-sci">Science & Tech</li>
-                <li data-filter=".filter-art">Art & Literature</li>
-                <li data-filter=".filter-soc">Social work</li>
-                <li data-filter=".filter-oth">Others</li>
-            </ul>
-          </div>
+      <header class="section-header">
+        <h3 class="section-title">Questionaires</h3>
+      </header>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul id="portfolio-flters">
+            <!--<li data-filter="*" class="filter-active">All</li>-->
+            <li data-filter=".filter-edu">Education</li>
+            <li data-filter=".filter-bus">Bussiness</li>
+            <li data-filter=".filter-sci">Science & Tech</li>
+            <li data-filter=".filter-art">Art & Literature</li>
+            <li data-filter=".filter-soc">Social work</li>
+            <li data-filter=".filter-oth">Others</li>
+          </ul>
         </div>
-
-        <!--start of education type-->
-        <div class="row portfolio-container" id="c">
-          
-
       </div>
 
-    </section><!-- #portfolio -->
+      <!--start of added information -->
+      <div class="row portfolio-container" id="c"></div>
+      </section><!-- #portfolio -->
   </body>
-
-
-  </main>
+</main>
 
   <!--==========================
     Footer
