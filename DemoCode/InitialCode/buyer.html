@@ -9,53 +9,51 @@
   <link type="text/css" rel="stylesheet" href="css/simplePagination.css"/>
 <script type="text/javascript">
   window.numofrecords = 0;
-window.type = new Array();
-window.title = new Array();
-window.nid = new Array();
-
-function search1(){
-        var data = '{"word":-1}';
-        var obj = JSON.parse(data);
-        obj.word = document.getElementById("goal").value;
-        
-        $.ajax({
-          type:'post',
-          url:"search.php",
-          data:obj,
-          dataType:"json",
-          async:false,
-          success:function(msg){
-            if(msg.number>0){
-              window.type = msg.type;
-              window.title = msg.title;
-              window.nid = msg.nid;
-              window.numofrecords = msg.number;
-              var first_line = $("<tr><th>NID</th><th>Title</th><th>Topic</th><th>Price</th><th></th></tr>");
-              first_line.appendTo($("#records"));  
-        for(var i=0; i<window.numofrecords; i++)
-              {
-                  var record= $("<tr><td>"+ (window.nid[(pageNumber-1)*6]) + "</td><td>" + (window.title[(pageNumber-1)*6]) 
+  window.type = new Array();
+  window.title = new Array();
+  window.nid = new Array();
+  //function invoked by Search button to fetch matched questionnaires
+  //transmit the input by Ajax to search.php
+  //acquired questionnaires information is added to #records area
+  function search1(){
+    var data = '{"word":-1}';
+    var obj = JSON.parse(data);
+    obj.word = document.getElementById("goal").value;
+    $.ajax({
+      type:'post',
+      url:"search.php",
+      data:obj,
+      dataType:"json",
+      async:false,
+      success:function(msg){
+        if(msg.number>0){
+          window.type = msg.type;
+          window.title = msg.title;
+          window.nid = msg.nid;
+          window.numofrecords = msg.number;
+          var first_line = $("<tr><th>NID</th><th>Title</th><th>Topic</th><th>Price</th><th></th></tr>");
+          first_line.appendTo($("#records"));  
+          for(var i=0; i<window.numofrecords; i++)
+          {
+            var record= $("<tr><td>"+ (window.nid[(pageNumber-1)*6]) + "</td><td>" + (window.title[(pageNumber-1)*6]) 
                     +"</td><td>"+(window.type[(pageNumber-1)*6])+"</td><td>1500</td><td><button type=\"submit\">View</button></td></tr>");
-                  record.appendTo($("#records"));
-
-              }
-
-            }
-            else
-              alert("Your search did not match any documents.");
-          
-          },
-          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+            record.appendTo($("#records"));
+          }
+        }
+        else
+          alert("Your search did not match any documents.");
+      },
+      error:function(XMLHttpRequest, textStatus, errorThrown){ 
             //alert(XMLHttpRequest.status);
             //alert(XMLHttpRequest.readyState);
-            alert(textStatus);
-          }
-    })
-            
-return false;
-     
+      alert(textStatus);
+    }
+  })
+    return false;     
 };
 </script>
+
+<!-- style of table -->
 <style>
 .center {
    text-align: center;
@@ -200,10 +198,10 @@ td {text-align:center;  white-space: nowrap;}
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
-      <header id="header">
-    <div class="container-fluid">
 
+<body>
+  <header id="header">
+    <div class="container-fluid">
       <div id="logo" class="pull-left">
         <h1><a href="#intro" class="scrollto">Dr Stat's</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
@@ -216,56 +214,35 @@ td {text-align:center;  white-space: nowrap;}
           <li class="menu-active"><a href="buyer.html">Purchase</a></li>
           <li><a href="designform.html">Release</a></li>
           <li><a href="user.html">Account</a></li>
-		  <li><a href="IntroPage.html">Sign out</a></li>
+          <li><a href="IntroPage.html">Sign out</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
-      
-   <br/>
-   <br/>
-   <br/>
-   <br/> 
- 
-   
-    
-    </br>
-    </br>
-    </br>
-      
+  <br/><br/><br/><br/></br></br></br>
 
-    <div class="center">
-      
-      <div class="container">
-	<!-- reminder -->
-        <div style="  font-size: 32px;
+  <div class="center">
+    <div class="container">
+    <!-- reminder -->
+      <div style="  font-size: 32px;
 color: #111;text-transform: uppercase;text-align: center;font-weight: 700;position: relative;padding-bottom: 15px;">
           <h3><b>Check similar surveys before you make your own one!</b></h3>
-        </div>
-</div>
- <section id="buyer">
+      </div>
+    </div>
+    <section id="buyer">
       <div class="form">
-         
-          
-            <br/>
-            <form>  
-            <input id="goal" type="text" style="height: 50px;width:550px;" />  
-	
-            <button type="submit" onclick="return search1();" href="">Search</button> <!-- search1 is used to do searching-->
+        <br/>
+        <form>  
+          <input id="goal" type="text" style="height: 50px;width:550px;" />  
+          <button type="submit" onclick="return search1();" href="">Search</button> <!-- search1 is used to do searching-->
         </form>
-      
-    
-<!-- the table containing the search results -->
-   <table border="1" cellpadding="10" id="records">
-         </table>
-        </div>
-        </section> 
-       </div>
-
-</br>
-</br>
-</br>
-<!-- paging division -->
-<div id="paging3" class="page"></div>
+        <!-- the table containing the search results -->
+        <table border="1" cellpadding="10" id="records"></table>
+      </div>
+    </section> 
+  </div>
+  </br></br></br>
+  <!-- paging division -->
+  <div id="paging3" class="page"></div>
 </body>
 </html>
