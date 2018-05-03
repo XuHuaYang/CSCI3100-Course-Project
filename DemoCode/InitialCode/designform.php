@@ -1,5 +1,19 @@
 <?php
-
+/*********************************************************************
+ * MODULE NAME:designform
+ *
+ * PROCEDURE INVOCATION:
+ *     CALL designform()
+ *
+ * INPUT PARAMETERS:
+ *     userID
+ *
+ * OUTPUT PARAMETERS:
+ *     IF user's credit >= 1500, can release
+ *        Then fetch the questions to the server, then save it to database
+ *     If user's credit < 1500, cannot release
+ *     Return the status of the release 
+**********************************************************************/
 	$dbservername = "localhost";
     $dbusername = "root";
     $dbpassword = "zwq19961228";
