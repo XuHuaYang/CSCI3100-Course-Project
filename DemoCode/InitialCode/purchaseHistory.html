@@ -7,6 +7,10 @@
   <script src="lib/jquery/jquery.min.js"></script>
   <script language="JavaScript"></script>
   <script type="text/javascript">
+    //function invoked onload to fetch user purchased questionnaires information
+    //get userID from sessionStorage
+    //transmit to user_info.php by Ajax
+    //acquired information is added to #table area
     function getUserInfo(){
       var data = '{"id":-1,"ntype":-1}';
       var obj = JSON.parse(data);
@@ -44,6 +48,8 @@
       })
     }
   </script>
+
+ <!-- style for table -->  
   <style>
     #nav {
     line-height:20px;
@@ -187,7 +193,7 @@
 
 <!-- <body style="background-image:url('img/black.png')"> -->
 <body onload="getUserInfo();">
-    <header id="header" style="background-color:black">
+  <header id="header" style="background-color:black">
     <div class="container-fluid">
 
       <div id="logo" class="pull-left">
@@ -206,27 +212,26 @@
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
-</header><!-- #header -->
+  </header><!-- #header -->
 
-    <div id="nav">
-      <br><br><br>
-      <p><a href="user.html"><font color="white">User Account</a></p><br>
-      <p><a href="releaseHistory.html"><font color="white">Release History</font></a></p><br>
-      <p><a href="purchaseHistory.html">Purchase History</font></a></p><br>      
-    </div>
+  <div id="nav">
+    <br><br><br>
+    <p><a href="user.html"><font color="white">User Account</a></p><br>
+    <p><a href="releaseHistory.html"><font color="white">Release History</font></a></p><br>
+    <p><a href="purchaseHistory.html">Purchase History</font></a></p><br>      
+  </div>
 
-    
-    <div id="section">   
-      <div class="user-setting-warp">
-        <div class="padding-dom"></div>
+  <div id="section">   
+    <div class="user-setting-warp">
+      <div class="padding-dom"></div>
         <div>
+        <!-- information added here to the table -->
           <table border="1" cellpadding="10" id="table">
             <tr>
               <th>NID</th>
               <th>Title</th>
               <th>View</th>
             </tr>
-
           </table>
         </div>
       </div>

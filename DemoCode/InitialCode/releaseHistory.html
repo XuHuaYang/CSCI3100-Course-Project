@@ -7,6 +7,10 @@
   <script src="lib/jquery/jquery.min.js"></script>
   <script language="JavaScript"></script>
   <script type="text/javascript">
+    //function invoked onload to fetch user released questionnaires information
+    //get userID from sessionStorage
+    //transmit to user_info.php by Ajax
+    //acquired information is added to #table area
     function getUserInfo(){
       var data = '{"id":-1,"ntype":-1}';
       var obj = JSON.parse(data);
@@ -56,6 +60,8 @@
       })
     }
   </script>
+
+  <!-- style for table --> 
   <style>
     #nav {
     line-height:20px;
@@ -218,20 +224,20 @@
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
-</header><!-- #header -->
+  </header><!-- #header -->
 
-    <div id="nav">
-      <br><br><br>
-      <p><a href="user.html"><font color="white">User Account</a></p><br>
-      <p><a href="releaseHistory.html">Release History</font></a></p><br>
-      <p><a href="purchaseHistory.html"><font color="white">Purchase History</font></a></p><br>         
-    </div>
+  <div id="nav">
+    <br><br><br>
+    <p><a href="user.html"><font color="white">User Account</a></p><br>
+    <p><a href="releaseHistory.html">Release History</font></a></p><br>
+    <p><a href="purchaseHistory.html"><font color="white">Purchase History</font></a></p><br>         
+  </div>
 
-    
-    <div id="section">   
-      <div class="user-setting-warp">
-        <div class="padding-dom"></div>
+  <div id="section">   
+    <div class="user-setting-warp">
+      <div class="padding-dom"></div>
         <div>
+          <!-- information added here to the table -->
           <table border="1" cellpadding="10" id="table">
             <tr>
               <th>NID</th>
@@ -242,7 +248,6 @@
             </tr>
           </table>
         </div>
-        
       </div>
     </div>    
 </body>
