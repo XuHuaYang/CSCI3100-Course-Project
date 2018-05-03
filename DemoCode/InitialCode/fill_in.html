@@ -47,46 +47,52 @@ questionnaire_content
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 
-<script type="text/javascript">    
-        function firm() {
-        if (confirm("Are you sure to submit your answer?")) {
-            var data = '{"nid":-1, "answers":-1,"id":-1}';
-            var obj = JSON.parse(data);
-            var para = location.search.substring(1);
-            var nid = para.replace('nid=','');
-            obj.nid = nid;
-            var answers = new Array();
-            var n = sessionStorage.getItem("qnum");
-            obj.id = sessionStorage.getItem("id");
-            for(var i=0; i<n; i++)
-            {
-              if(document.getElementById(i+".a").checked==true)
-                answers.push("a");
-              else if(document.getElementById(i+".b").checked==true)
-                answers.push("b");
-              else if(document.getElementById(i+".c").checked==true)
-                answers.push("c");
-              else if(document.getElementById(i+".d").checked==true)
-                answers.push("d");
-            }
-            obj.answers = answers;
-            $.ajax({
-              type:'post',
-              url:"post_answers.php",
-              data:obj,
-              dataType:"json",
-              async:false
-              }) 
-              sessionStorage.setItem("qnum",0);
-              alert("You have submitted it successfully!");
-            }
-        else {
-            alert("You have cancelled this submitting. ");
-        }
-
+<script type="text/javascript">
+  //function invoked by submit button
+  //fetch input by their Ids and pacakge as JSON
+  //use Ajax to transmit with post_answers.php    
+  function firm() {
+    if (confirm("Are you sure to submit your answer?")) {
+      var data = '{"nid":-1, "answers":-1,"id":-1}';
+      var obj = JSON.parse(data);
+      var para = location.search.substring(1);
+      var nid = para.replace('nid=','');
+      obj.nid = nid;
+      var answers = new Array();
+      var n = sessionStorage.getItem("qnum");
+      obj.id = sessionStorage.getItem("id");
+      for(var i=0; i<n; i++)
+      {
+        if(document.getElementById(i+".a").checked==true)
+          answers.push("a");
+        else if(document.getElementById(i+".b").checked==true)
+          answers.push("b");
+        else if(document.getElementById(i+".c").checked==true)
+          answers.push("c");
+        else if(document.getElementById(i+".d").checked==true)
+          answers.push("d");
+      }
+      obj.answers = answers;
+      $.ajax({
+        type:'post',
+        url:"post_answers.php",
+        data:obj,
+        dataType:"json",
+        async:false
+      }) 
+      sessionStorage.setItem("qnum",0);
+      alert("You have submitted it successfully!");
     }
+    else {
+      alert("You have cancelled this submitting. ");
+    }
+  }
 </script>
 <script type="text/javascript">
+    //function invoked onload of webpage
+    //transmit nid(questionnaire id) to fetchquestion.php using Ajax
+    //to get the information(title,questions,choices..) of the questionnare
+    //the information is displayed by adding html codes to #buyer area
     function loadQues(){
       var data = '{"nid":-1}';
       var obj = JSON.parse(data);
@@ -119,59 +125,47 @@ questionnaire_content
       })    
     }
   </script>
-
 </head>
+
 <body onload="loadQues();">
-
-      <div id="header" class="header-scrolled";>
-      <div id="logo" class="pull-left">
-        <h1><a href="homepage.html" >Mr.Stat's</a></h1>
-      </div>
-      <br/>
-        <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li class="menu-active"><a href="main.html">Home</a></li>
-          <li><a href="buyer.html">Purchase</a></li>
-          <li><a href="designform.html">Release</a></li>
-          <li ><a href="user.html">Account</a></li>
-          <li><a href="IntroPage.html">Sign out</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
+  <div id="header" class="header-scrolled";>
+    <div id="logo" class="pull-left">
+      <h1><a href="homepage.html" >Mr.Stat's</a></h1>
+    </div>
+    <br/>
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="menu-active"><a href="main.html">Home</a></li>
+        <li><a href="buyer.html">Purchase</a></li>
+        <li><a href="designform.html">Release</a></li>
+        <li ><a href="user.html">Account</a></li>
+        <li><a href="IntroPage.html">Sign out</a></li>
+      </ul>
+    </nav><!-- #nav-menu-container -->
   </div>
-   <br/>
-   <br/>
+  <br/>
+  <br/>
  
-
-<div class="wjContent">
-<div class="content ptop Tj">
-<div class="templates">
-<div class="proheaddiv">
-
-<div class="reldiv">
-<h1 class="alignc h3" id="questionnaireName"></h1>
-<div nowrap>
-<br>
-
-</div>
-<div class="wjhr mtop"></div>
-<div class="ques mtop"></div>
-
-<div class="wjques">
-
-<section id="buyer">
-
-
-</section>
-<br>
-</div>
-</div>
-
-
-
-
-</div>
-</div>
-</div>
-</div>
+  <div class="wjContent">
+    <div class="content ptop Tj">
+      <div class="templates">
+        <div class="proheaddiv">
+          <div class="reldiv">
+            <h1 class="alignc h3" id="questionnaireName"></h1>
+            <div nowrap>
+            <br>
+            </div>
+            <div class="wjhr mtop"></div>
+            <div class="ques mtop"></div>
+            <div class="wjques">
+              <!-- area to display questionnaire -->
+              <section id="buyer"></section>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
