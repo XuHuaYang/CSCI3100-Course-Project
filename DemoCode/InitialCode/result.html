@@ -14,6 +14,7 @@
 questionnaire_content
 
 </title>
+
 <link href="css/questionnaire.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/wjlibrary01.css" rel="stylesheet">
@@ -47,6 +48,7 @@ questionnaire_content
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script language="JavaScript">
+  //function to draw a chart with given data
   function drawChart() { 
    var chart = {
        plotBackgroundColor: null,
@@ -91,109 +93,91 @@ questionnaire_content
    json.plotOptions = plotOptions;
    var label ="#container"+arguments[0];
   
-   $(label).highcharts(json);  
-  
+   $(label).highcharts(json);    
 }
 </script>
-<script type="text/javascript">    
-        function firm() {
-        if (confirm("Are you sure to purchase this questionnaire?")) {
-            alert("You have purchase it successfully!");
-        }
-        else {
-            alert("You cancel this payment");
-        }
 
-    }
-</script>
 <script type="text/javascript">
-    function loadResults(){
-      var data = '{"nid":-1}';
-      var obj = JSON.parse(data);
-      var para = location.search.substring(1);
-      var nid = para.replace('nid=','');
-      obj.nid = nid;
-      $.ajax({
-          type:'post',
-          url:"fetchresult.php",
-          data:obj,
-          dataType:"json",
-          async:false,
-          success:function(msg){       
-            var n = msg.questionnumber; 
-            $("#questionnaireName").html(msg.ntitle);         
-            for(var i=0; i<n; i++)
-            {
-                var content = $("<div id=\"description\" class=\"big\">Q"+(i+1)+". "+msg.qtitle[i]+"</div><div class=\"matrix\"><div><span style=\'font-size:20px\'> A </span><lable>"+msg.choicea[i]+"</lable></div><div><span style=\'font-size:20px\' > B </span> <lable>"+msg.choiceb[i]+"</lable></div><div><span style=\'font-size:20px\' > C </span> <lable>"+msg.choicec[i]+"</lable></div><div><span style=\'font-size:20px\' > D </span> <lable>"+msg.choiced[i]+"</lable></div><div id=\"container"+i+"\" style=\"width: 500px; height: 350px; margin: 0 auto\"></div></div><div class=\"wjhr mtop\"></div>");
+  //function invoked onload to get information of questionnaire (answer number of each question)
+  //the fetched information is added to #buyer area
+  //charts are also added together
+  function loadResults(){
+    var data = '{"nid":-1}';
+    var obj = JSON.parse(data);
+    var para = location.search.substring(1);
+    var nid = para.replace('nid=','');
+    obj.nid = nid;
+    $.ajax({
+      type:'post',
+      url:"fetchresult.php",
+      data:obj,
+      dataType:"json",
+      async:false,
+      success:function(msg){       
+        var n = msg.questionnumber; 
+        $("#questionnaireName").html(msg.ntitle);         
+        for(var i=0; i<n; i++)
+        {
+          var content = $("<div id=\"description\" class=\"big\">Q"+(i+1)+". "+msg.qtitle[i]+"</div><div class=\"matrix\"><div><span style=\'font-size:20px\'> A </span><lable>"+msg.choicea[i]+"</lable></div><div><span style=\'font-size:20px\' > B </span> <lable>"+msg.choiceb[i]+"</lable></div><div><span style=\'font-size:20px\' > C </span> <lable>"+msg.choicec[i]+"</lable></div><div><span style=\'font-size:20px\' > D </span> <lable>"+msg.choiced[i]+"</lable></div><div id=\"container"+i+"\" style=\"width: 500px; height: 350px; margin: 0 auto\"></div></div><div class=\"wjhr mtop\"></div>");
                 content.appendTo($("#buyer"));
-            }
-            for(var i=0; i<n; i++)
-            {
-            	drawChart(i,msg.anum[i],msg.bnum[i],msg.cnum[i],msg.dnum[i]);
-              
-            }
-          },
-          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+        }
+        for(var i=0; i<n; i++)
+        {
+          drawChart(i,msg.anum[i],msg.bnum[i],msg.cnum[i],msg.dnum[i]);
+        }
+      },
+      error:function(XMLHttpRequest, textStatus, errorThrown){ 
             //alert(XMLHttpRequest.status);
             //alert(XMLHttpRequest.readyState);
-            alert(textStatus);
-          }
-      })    
-    }
-  </script>
+        alert(textStatus);
+      }
+    })    
+  }
+</script>
 </head>
+
 <body onload="loadResults();">
-
-      <div id="header" class="header-scrolled";>
-      <div id="logo" class="pull-left">
-        <h1><a href="homepage.html" >Mr.Stat's</a></h1>
-      </div>
-      <br/>
-        <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li><a href="main.html">Home</a></li>
-          <li><a href="buyer.html">Purchase</a></li>
-          <li><a href="designform.html">Release</a></li>
-          <li class="menu-active"><a href="user.html">Account</a></li>
-          <li><a href="IntroPage.html">Sign out</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
+  <div id="header" class="header-scrolled";>
+    <div id="logo" class="pull-left">
+      <h1><a href="homepage.html" >Mr.Stat's</a></h1>
+    </div>
+    <br/>
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li><a href="main.html">Home</a></li>
+        <li><a href="buyer.html">Purchase</a></li>
+        <li><a href="designform.html">Release</a></li>
+        <li class="menu-active"><a href="user.html">Account</a></li>
+        <li><a href="IntroPage.html">Sign out</a></li>
+      </ul>
+    </nav><!-- #nav-menu-container -->
   </div>
-   <br/>
-   <br/>
- 
-<!-- css classes about the style of questionnaire -->
-<div class="wjContent">
-<div class="content ptop Tj">
-<div class="templates">
-<div class="proheaddiv">
-
-<div class="reldiv">
-<h1 class="alignc h3" id="questionnaireName"></h1>
-<div nowrap>
-<br>
-
-</div>
-<!-- horizontal line to separate the title from the body of the questionnaire -->
-<div class="wjhr mtop"></div>
-<div class="ques mtop"></div>
-
-<!-- the following div wait to be filled in by other functions -->
-<div class="wjques">
-
-<section id="buyer">
-	
-</section>
-<br>
-</div>
-</div>
-
-
-
-
-</div>
-</div>
-</div>
-</div>
+  <br/>
+  <br/>
+  <!-- css classes about the style of questionnaire -->
+  <div class="wjContent">
+    <div class="content ptop Tj">
+      <div class="templates">
+        <div class="proheaddiv">
+          <div class="reldiv">
+            <h1 class="alignc h3" id="questionnaireName"></h1>
+            <div nowrap>
+              <br>
+            </div>
+            <!-- horizontal line to separate the title from the body of the questionnaire -->
+            <div class="wjhr mtop"></div>
+            <div class="ques mtop"></div>
+            <!-- the following div wait to be filled in by other functions -->
+            <div class="wjques">
+              <section id="buyer">
+                <!-- questionnaire information and charts added here -->
+              </section>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
