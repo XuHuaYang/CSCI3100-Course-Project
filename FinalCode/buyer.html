@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/LI%20Siyao/Desktop/htmls/user.html -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <title>Buyer page</title>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.simplePagination.js"></script>
+  <link type="text/css" rel="stylesheet" href="css/simplePagination.css"/>
+<style>
+.center {
+   text-align: center;
+}
+ 
+</style>
+ <style type="text/css">
+  a{text-decoration:none}
+  .page{margin:0 auto;width:500px}
+  </style>
+  <style type="text/css">
+  .search_but button[type="button"] {
+  background: #18d26e;
+  border: 0;
+  padding: 10px 30px;
+  color: #FFF;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+ .search_but button[type="button"]:hover {
+  background: #13a456;
+}
+
+    
+  </style>
+<style type="text/css">
+  html, body, div, span, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  abbr, address, cite, code,
+  del, dfn, em, img, ins, kbd, q, samp,
+  small, strong, sub, sup, var,
+  b, i,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+  }
+  body {
+    margin:0;
+    padding:0;
+    font:12px/15px "Helvetica Neue",Arial, Helvetica, sans-serif;
+    color: #555;
+    background:#f5f5f5;
+  }
+  
+  a {color:#666;}
+  
+  #content {width:65%; max-width:690px; margin:6% auto 0;}
+  
+  /*
+  Pretty Table Styling
+  CSS Tricks also has a nice writeup: http://css-tricks.com/feature-table-design/
+  */
+  
+  table {
+    overflow:hidden;
+    border:1px solid #d3d3d3;
+    background:#fefefe;
+    width:70%;
+    margin:5% auto 0;
+    -moz-border-radius:5px; /* FF1+ */
+    -webkit-border-radius:5px; /* Saf3-4 */
+    border-radius:5px;
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  th, td {padding:18px 28px 18px; text-align:center; }
+  
+  th {padding-top:22px; text-shadow: 1px 1px 1px #fff; background:#e8eaeb;}
+  
+  td {border-top:1px solid #e0e0e0; border-right:1px solid #e0e0e0;}
+  
+  tr.odd-row td {background:#f6f6f6;}
+  
+  td.first, th.first {text-align:left}
+  
+  td.last {border-right:none;}
+  
+  /*
+  Background gradients are completely unnecessary but a neat effect.
+  */
+  
+  td {
+    background: -moz-linear-gradient(100% 25% 90deg, #fefefe, #f9f9f9);
+    background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f9f9f9), to(#fefefe));
+  }
+  
+  tr.odd-row td {
+    background: -moz-linear-gradient(100% 25% 90deg, #f6f6f6, #f1f1f1);
+    background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f1f1f1), to(#f6f6f6));
+  }
+  
+  th {
+    background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
+    background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
+    text-align:center;
+  }
+  
+  
+  tr:first-child th.first {
+    -moz-border-radius-topleft:5px;
+    -webkit-border-top-left-radius:5px; /* Saf3-4 */
+  }
+  
+  tr:first-child th.last {
+    -moz-border-radius-topright:5px;
+    -webkit-border-top-right-radius:5px; /* Saf3-4 */
+  }
+  
+  tr:last-child td.first {
+    -moz-border-radius-bottomleft:5px;
+    -webkit-border-bottom-left-radius:5px; /* Saf3-4 */
+  }
+  
+  tr:last-child td.last {
+    -moz-border-radius-bottomright:5px;
+    -webkit-border-bottom-right-radius:5px; /* Saf3-4 */
+  }
+td {text-align:center;  white-space: nowrap;}
+    table {text-align: center;}
+</style>
+
+<style> 
+.divcss5-cent{margin:0 auto;width:250px;height:50px;border:1px solid #F00} 
+</style> 
+
+
+  <link href="css/style.css" rel="stylesheet">
+  <style type="text/css">.user-setting-warp .padding-dom{width:789px;height:39px;border-bottom:1px solid #e5e9ef;margin-bottom:40px}</style>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+</head>
+<body>
+      <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">Dr Stat's</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="main.html">Home</a></li>
+          <li class="menu-active"><a href="buyer.html">Purchase</a></li>
+          <li><a href="designform.html">Release</a></li>
+          <li><a href="user.html">Account</a></li>
+		  <li><a href="IntroPage.html">Sign out</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+      
+   <br>
+   <br>
+   <br>
+   <br> 
+ 
+   
+    
+    <br>
+    <br>
+    <br>
+      
+    <div class="center">
+      
+      <div class="container">
+
+        <div style="  font-size: 32px;
+color: #111;text-transform: uppercase;text-align: center;font-weight: 700;position: relative;padding-bottom: 15px;">
+          <h3><b>Check similar surveys before you make your own one!</b></h3>
+        </div>
+</div>
+ <section  class="buyer" id="buyer">
+      <div class="form" id="form">
+         
+          
+            <br>
+            <form> 
+            <div class="search_but"> 
+            <input id="goal" type="text" style="height: 50px;width:550px;">  
+             <button type="button" onclick="search_word();">Search</button> </div>
+        </form>
+      
+    
+
+   <table border="1" cellpadding="10" id="records">
+         </table>
+        </div>
+        </section> 
+       </div>
+<div id="end"></div>
+<br>
+<br>
+<br>
+
+</body>
+</html>

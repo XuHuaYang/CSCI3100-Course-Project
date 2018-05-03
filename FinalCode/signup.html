@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sign up page</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+  <script type="text/javascript">
+    function saveJson1(){
+      var data = '{"FirstName":"", "LastName":"", "Email":"", "CreditCard":"", "Pincode":"", "Password":"", "area1":false, "area2":false, "area3":false, "area4":false, "area5":false, "area6":false}';
+      var obj = JSON.parse(data);
+      obj.FirstName=document.getElementById("first_name").value;
+      obj.LastName=document.getElementById("last_name").value;
+      obj.Email=document.getElementById("email").value;
+      obj.CreditCard=document.getElementById("creditCard").value;
+      obj.Pincode=document.getElementById("pincode").value;
+      obj.area1=document.getElementById("student&scholar").checked;
+      obj.area2=document.getElementById("Business").checked;
+      obj.area3=document.getElementById("Science&technology").checked;
+      obj.area4=document.getElementById("Arts&Literature").checked;
+      obj.area5=document.getElementById("SocialWork").checked;
+      obj.area6=document.getElementById("others").checked;
+      var pswd1 = document.getElementById("Password").value;
+      var pswd2 = document.getElementById("Password2").value;
+      if (obj.FirstName=="")
+        alert("Please enter your first name");
+      else if(obj.LastName=="")
+        alert("Please enter your last name");
+      else if(obj.Email=="")
+        alert("Please enter your email address");
+      else if(obj.CreditCard=="")
+        alert("Please enter your creditcard No.");
+      else if(obj.Pincode=="")
+        alert("Please enter your pincode");
+      else if(obj.area1==false && obj.area2==false && obj.area3==false && obj.area4==false && obj.area5==false && obj.area6==false)
+        alert("Please select an Occupation Area");
+      else if (pswd1=="" || pswd2=="")
+        alert("Please enter your password");
+      else if (pswd1==pswd2) {
+        obj.Password = pswd1;
+        //alert("Posting..");
+        $.ajax({
+          type:'post',
+          url:"sub_form.php",
+          data:obj,
+          dataType:"json",
+          async:false,
+          success:function(msg){  
+            if(msg.exist==0){
+            alert("Sign up successful");
+            window.location.href="IntroPage.html";
+            }
+            else{
+              alert("User Name alreay Exist, try another one!");
+            }
+
+          }, 
+          error:function(XMLHttpRequest, textStatus, errorThrown){ 
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+          } 
+        })
+        //alert("End posting.");
+    }
+    else
+      alert("Passwords should be the same");
+  }
+  </script>
+  
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">Dr Stat's</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="IntroPage.html">Home</a></li>
+         
+          
+          <li><a href="user.html">Account</a></li>
+      <li class="menu-active"><a href="signup.html">LOGIN</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active" style="background-image: url('img/intro-carousel/3.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Join us right now!</h2>
+                <p>Get your account and start your Stat's jounery with us!</p>
+                <a href="#register" class="btn-get-started scrollto">Sign up now</a>
+              </div>
+            </div>
+          </div>     
+
+
+        </div>
+
+        
+
+      </div>
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+
+
+  
+
+    <!--==========================
+      Redister form
+    ============================-->
+    <section id="register" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <div class="section-header">
+          <p></p>
+          <h3>Fill the form is all you need</h3>
+          <p>Please make sure all your personal information and card number is correct and indentical with you real ID！</p>
+        </div>
+
+        
+
+        <div class="form">
+          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Personal Info:</p>
+              </div>
+              <div class="form-group col-md-3">
+                <input type="text" name="First name" class="form-control" id="first_name" placeholder="First Name" data-rule="minlen:1" data-msg="Please enter at least 1 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-3">
+                <input type="text" name="Last name" class="form-control" id="last_name" placeholder="Last Name" data-rule="minlen:1" data-msg="Please enter at least 1 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                
+              </div>
+              <div class="form-group col-md-6">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email (As username)" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validation"></div>
+              </div>
+
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                  
+              </div>
+              <div class="form-group col-md-6">
+                  <input type="creditCard" class="form-control" name="creditCard" id="creditCard" placeholder="Credit Card Num (Holder must be coincident with your name)" data-rule="minlen:13" data-msg="Please enter a valid creditcard" />
+                  <div class="validation"></div>
+              </div>
+
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                  
+              </div>
+              <div class="form-group col-md-2">
+                  <input type="pincode" class="form-control" name="pincode" id="pincode" placeholder="pin (last 3 digits)" data-rule="minlen:3"  data-msg="Please enter a valid pin code" />
+                  <div class="validation"></div>
+              </div>
+
+              
+              <div class="form-group col-md-7">
+                
+              </div>
+            </div>
+
+            
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Your Occupation Area:</p>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="student&scholar" name="student&scholar" value="student&scholar">
+                   <label for="subscribeNews">Students & Scholars</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="Business" name="Business" value="Business">
+                   <label for="subscribeNews">Business</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="Science&technology" name="Science&technology" value="Science&technology">
+                   <label for="subscribeNews">Science & Tech</label>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="Arts&Literature" name="Arts&Literature" value="Arts&Literature">
+                   <label for="subscribeNews">Arts & Literature</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="SocialWork" name="SocialWork" value="SocialWork">
+                   <label for="subscribeNews">Social works</label>
+              </div>
+              <div class="form-group col-md-2">
+                   <input type="checkbox" id="others" name="others" value="others">
+                   <label for="subscribeNews">Others</label>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+            
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Set Password:</p>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="text" name="Password" class="form-control" id="Password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <p>Confirm Password:</p>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="text" name="Password2" class="form-control" id="Password2" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              
+              <div class="form-group col-md-3">
+                
+              </div>
+            </div>
+
+
+            
+            
+            
+              <div class="text-center"><button type="submit" onclick="saveJson1();" >Submit</button></div>  
+        </form>
+        </div>
+
+      </div>
+    </section><!-- #register form -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>BizPage</h3>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit"  value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Dr Stat's</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+        -->
+        Best <a href="">Bootstrap Templates</a> by BootstrapMade
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
