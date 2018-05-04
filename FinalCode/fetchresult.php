@@ -1,5 +1,18 @@
 <?php
-	
+	/********************************************************
+     * MODULE NAME:fetchresult
+     *
+     * PROCEDURE INVOCATION:
+     *     CALL fetchresult(nid)
+     *
+     * INPUT PARAMETER:
+     *     INPUT is the nid of the question
+     *
+     * OUTPUT PARAMETER:
+     *     Return the question with the given nid in the database
+     *     Including the question title,four question choices and
+     *     the number of  people who select this choice
+    ********************************************************/
     $nid =$_POST["nid"];
 
     $ntitle = "A simple questionnaire";

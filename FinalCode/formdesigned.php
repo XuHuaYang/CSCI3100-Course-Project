@@ -4,7 +4,19 @@
 </head>
 <body>
 <?php
-
+/*********************************************************************
+ * MODULE NAME:formdesigned
+ *
+ * PROCEDURE INVOCATION:
+ *     CALL formdesigned()
+ *
+ * INPUT PARAMETERS:
+ *     NULL
+ *
+ * OUTPUT PARAMETERS:
+ *     The questionnaire on the designform page
+ *     Send the new questionnaire to server when user submit it
+**********************************************************************/
 if(isset($_POST['submit'])){
         $number=0;
         $formtitle=$_POST['formtitle'];

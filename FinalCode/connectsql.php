@@ -2,6 +2,19 @@
 
 
 <?php
+/****************************************************************
+     *MODULE NAME:connectsql
+     *
+     * PROCEDURE INVOCATION:
+     *    CALL connectsql()
+     *
+     * INPUT PARAMETERS:
+     *    NONE
+     *
+     * OUTPUT PARAMETERS:
+     *    If connection to database successes,return none
+     *    If connection to database fails,throw exception
+    *******************************************************************/
 $dbservername = "localhost";
 $dbusername = "root";
 $dbpassword = "zwq19961228";

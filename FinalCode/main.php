@@ -1,4 +1,16 @@
 <?php
+/*********************************************************************
+ * MODULE NAME:main
+ *
+ * PROCEDURE INVOCATION:
+ *     CALL main()
+ *
+ * INPUT PARAMETERS:
+ *     NULL
+ *
+ * OUTPUT PARAMETERS:
+ *     The latest 6 questionnaires in the data base for each kinds
+**********************************************************************/
     $t1title=array();
     $t2title=array();
     $t3title=array();

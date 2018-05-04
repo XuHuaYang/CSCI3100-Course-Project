@@ -1,4 +1,17 @@
 <?php
+/****************************************************
+	 * MODULE NAME:Fetchquestion
+	 *
+	 * PROCEDURE INVOCATION:
+	 * 	  CALL Fetchquestion(nid)
+	 *
+	 * Input Parameters:
+	 * 	   The nid of the question
+	 *
+	 * Output Parameters:
+	 *     Return the question with the given nid in the data base
+	 *     Including the question title,four question choices
+	*****************************************************/
 $dbservername = "localhost";
 $dbusername = "root";
 $dbpassword = "zwq19961228";

@@ -1,5 +1,21 @@
 <?php
-
+/*********************************************************************
+ * MODULE NAME:checkcredit
+ *
+ * PROCEDURE INVOCATION:
+ *     CALL checkcredit(nid,id,canbuy)
+ *
+ * INPUT PARAMETERS:
+ *     nid is the questionnaire the user wants to buy
+ *     id is the identification of the user in the database
+ *     so input is nid and id
+ *
+ * OUTPUT PARAMETERS:
+ *     IF user's credit >= 1500, user can buy the questionnaire data,
+ *         consume the credit, return flag canbuy = 1
+ *     ELSE user can not buy the questionnaire, return flag canbuy = 0
+ *     Return the flag canbuy
+**********************************************************************/
 $dbservername = "localhost";
 $dbusername = "root";
 $dbpassword = "zwq19961228";

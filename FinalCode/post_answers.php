@@ -1,5 +1,21 @@
 <?php
-
+/*********************************************************************
+ * MODULE NAME:post_answer
+ *
+ * PROCEDURE INVOCATION:
+ *     CALL post_answer(id,nid,answers)
+ *
+ * INPUT PARAMETERS:
+ *     id is the identification of the user
+ *     nid is the identificaiton of the questionnaire
+ *     answers are fetched from webpage
+ *
+ * OUTPUT PARAMETERS:
+ *     Add one to the number of people fill in this questionnaire
+ *     If the questionnaire reach the max number that the questionnaire paid to fill in it
+ *        Then mark the questionnaire as finished
+ *     Return nothing
+**********************************************************************/
 $dbservername = "localhost";
     $dbusername = "root";
     $dbpassword = "zwq19961228";
